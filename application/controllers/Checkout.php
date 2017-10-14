@@ -45,7 +45,7 @@ class Checkout extends CORE_Controller {
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
         $data['_top_navigation']=$this->load->view('template/elements/top_navigation',$cat,TRUE);
         $this->load->view('checkout_view',$data);
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Gerona Marketplace';
     }
 
 

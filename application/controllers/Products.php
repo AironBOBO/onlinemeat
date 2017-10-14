@@ -28,7 +28,7 @@ class Products extends CORE_Controller {
           'category.*'
         );
         $data['product_type']=$m_prodtype->get_list();
-        $data['_title'] = 'Products';
+        $data['_title'] = 'Gerona Marketplace';
         $this->load->view('seller_products_view',$data);
 
     }

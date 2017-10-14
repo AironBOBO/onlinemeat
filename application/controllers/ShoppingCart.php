@@ -23,7 +23,7 @@ class ShoppingCart extends CORE_Controller {
         $m_category=$this->Category_model;
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
-        $data['_title']="Furnies OL-Shoppe";
+        $data['_title']="Gerona Marketplace";
         //to view categories in navigation
         $cat['isshoppingcart']=1;
 

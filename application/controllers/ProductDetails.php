@@ -22,7 +22,7 @@ class ProductDetails extends CORE_Controller {
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
         $m_unit=$this->Unit_model;
-        $data['_title']="Furnies OL-Shoppe";
+        $data['_title']="Gerona Marketplace";
 
         if (is_numeric($this->input->get('getprodinfo',TRUE))) {
           $product_id = $this->input->get('getprodinfo',TRUE);

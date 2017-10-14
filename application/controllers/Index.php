@@ -24,7 +24,7 @@ class Index extends CORE_Controller {
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
         $m_order_items=$this->Order_items_model;
-        $data['_title']="Meat-Shoppe";
+        $data['_title']="Gerona Marketplace";
         //to view categories in navigation
         $cat['category']=$m_category->get_list(
           'category.is_deleted=0 AND category.is_active=1',

@@ -24,7 +24,7 @@ class Thankyou extends CORE_Controller {
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
         $m_orders=$this->Order_model;
-        $data['_title']="Furnies OL-Shoppe";
+        $data['_title']="Gerona Marketplace";
         //to view categories in navigation
 
         if(is_numeric($this->input->get('order_id',TRUE)) ){

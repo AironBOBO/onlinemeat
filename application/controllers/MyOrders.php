@@ -25,7 +25,7 @@ class MyOrders extends CORE_Controller {
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
         $m_orders=$this->Order_model;
-        $data['_title']="Furnies OL-Shoppe";
+        $data['_title']="Gerona Marketplace";
         //to view categories in navigation
         $cat['products_cart']=$m_cart->get_list(
           'products.is_deleted=0 AND cart.user_id='.$user_id,

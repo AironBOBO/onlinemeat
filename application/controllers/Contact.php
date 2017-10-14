@@ -22,9 +22,9 @@ class Contact extends CORE_Controller {
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
         $m_unit=$this->Unit_model;
-        $data['_title']="Furnies OL-Shoppe";
+        $data['_title']="Gerona Marketplace";
 
-        
+
         $cat['products_cart']=$m_cart->get_list(
           'products.is_deleted=0 AND cart.user_id='.$user_id,
           'products.product_id,products.product_name,products.price,products.image1,cart.quantity,cart.cart_id',

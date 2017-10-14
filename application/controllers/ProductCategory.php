@@ -75,7 +75,7 @@ class ProductCategory extends CORE_Controller {
 
 
 
-        $data['_title']="Furnies OL-Shoppe";
+        $data['_title']="Gerona Marketplace";
         //to view categories in navigation
         $cat['category']=$m_category->get_list(
           'category.is_deleted=0 AND category.is_active=1',
