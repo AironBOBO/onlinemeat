@@ -4,7 +4,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>F</b>S</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">Furnies OL-Shoppe</span>
+      <span class="logo-lg">Gerona Marketplace</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

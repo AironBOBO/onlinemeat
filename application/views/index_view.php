@@ -80,7 +80,7 @@
     <section class="men-collection gray-bg">
       <div class="container">
         <header class="text-center">
-          <h2 class="text-uppercase"><small>Meat</small>New Products</h2>
+          <h2 class="text-uppercase">New Products</h2>
         </header>
         <!-- Products Slider-->
         <div class="owl-carousel owl-theme products-slider">
@@ -121,12 +121,12 @@
       </div>
     </section>
     <!-- Divider Section-->
-    <section style="background: url(assets/images/divider-bg.jpg);" class="divider">
+    <section style="background: url(assets/images/divider.jpg);" class="divider">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h2 class="h1 text-uppercase no-margin">Huge Sales</h2>
-            <p>At our outlet stores</p><a href="#" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"></i></a>
+            <h2 class="h1 text-uppercase no-margin">Your site Tagline Here</h2>
+            <p>At our outlet stores</p><a href="ProductCategory?searchitem=" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"></i></a>
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@
     <section class="women-collection">
       <div class="container">
         <header class="text-center">
-          <h2 class="text-uppercase"><small>Meat</small>Best Sellers</h2>
+          <h2 class="text-uppercase">Best Sellers</h2>
         </header>
         <!-- Products Slider-->
         <div class="owl-carousel owl-theme products-slider">
