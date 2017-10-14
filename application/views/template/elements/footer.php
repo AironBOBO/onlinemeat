@@ -79,7 +79,7 @@
     <div class="container">
       <div class="row">
         <div class="info col-lg-4">
-          <div class="logo"><img src="assets/images/logo-white.png" alt="..."></div>
+          <div class="logo">Gerona Marketplace</div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
           <ul class="social-menu list-inline">
             <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
