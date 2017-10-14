@@ -1,0 +1,99 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Cart extends CORE_Controller {
+
+    function __construct()
+    {
+        parent::__construct('');
+        $this->load->model('Cart_model');
+        // $this->load->model('Users_model');
+        // $this->load->model('Wall_post_model');
+        // $this->validate_session();
+
+    }
+
+    public function index()
+    {
+
+    }
+
+    function transaction($txn = null) {
+        switch ($txn) {
+
+            case 'list':
+                $m_cart = $this->Cart_model;
+                $user_id=$this->session->user_id;
+                $response['data']=$m_cart->get_list(
+                  'cart.user_id='.$user_id,
+                  'cart.*'
+                );
+                echo json_encode($response);
+            break;
+
+            case 'create':
+                $m_cart = $this->Cart_model;
+                $user_id=$this->session->user_id;
+                $product_id = $this->input->post('product_id', TRUE);
+                $unit_id = $this->input->post('unit_id', TRUE);
+                $temp = $m_cart->get_list(
+                  'cart.user_id='.$user_id.' AND product_id='.$product_id.' AND unit_id='.$unit_id,
+                  'cart.cart_id,cart.quantity'
+                );
+                if(count($temp)==0){
+                  $m_cart->user_id = $this->session->user_id;
+                  $m_cart->product_id = $this->input->post('product_id', TRUE);
+                  $m_cart->unit_id = $this->input->post('unit_id', TRUE);
+                  if($this->input->post('quantity', TRUE)!=null){
+                    $m_cart->quantity = $this->input->post('quantity', TRUE);
+                  }
+                  else{
+                    $m_cart->quantity = 1;
+                  }
+
+                  $m_cart->save();
+                  $cart_id = $m_cart->last_insert_id();
+                }
+                else{
+                  $cart_id = $temp[0]->cart_id;
+                  $qtytemp = $temp[0]->quantity;
+                  $m_cart->user_id = $this->session->user_id;
+                  $m_cart->product_id = $this->input->post('product_id', TRUE);
+                  $m_cart->unit_id = $this->input->post('unit_id', TRUE);
+                  if($this->input->post('quantity', TRUE)!=null){
+                    $m_cart->quantity = $qtytemp + $this->input->post('quantity', TRUE);
+                  }
+                  else{
+                    $m_cart->quantity = $qtytemp+1;
+                  }
+                  $m_cart->modify($cart_id);
+                }
+
+
+
+
+                $response['stat'] = 'success';
+                $response['row_added'] = $m_cart->get_list($cart_id);
+                echo json_encode($response);
+
+            break;
+
+            case 'delete':
+                $m_cart=$this->Cart_model;
+                $cart_id=$this->input->post('cart_id',TRUE);
+                $m_cart->delete_via_id($cart_id);
+
+            break;
+
+            case 'update':
+                $m_cart=$this->Cart_model;
+                $cart_id=$this->input->post('cart_id',TRUE);
+                $m_cart->quantity = $this->input->post('quantity', TRUE);
+                $m_cart->modify($cart_id);
+
+            break;
+
+
+        }
+    }
+}
