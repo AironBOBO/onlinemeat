@@ -47,6 +47,8 @@
                         <th >Quantity</th>
                         <th >Price(PHP)</th>
                         <th >Shipping Fee</th>
+                        <th >Discount</th>
+                        <th >Unit</th>
                         <th >Status</th>
                         <th >Date Ordered</th>
                         <th style="text-align:center;">Action</th>
@@ -61,6 +63,8 @@
                         <th >Category</th>
                         <th >Price(PHP)</th>
                         <th >Shipping Fee</th>
+                        <th >Discount</th>
+                        <th >Unit</th>
                         <th >Status</th>
                         <th >Date Ordered</th>
                         <th style="text-align:center;">Action</th>
@@ -127,9 +131,11 @@
                 { targets:[2],data: "order_qty" },
                 { targets:[3],data: "order_price" },
                 { targets:[4],data: "shipping_fee" },
-                { targets:[5],data: "order_status_name" },
-                { targets:[6],data: "order_date"},
-                { targets:[7],data: "order_date",
+                { targets:[5],data: "discount_desc" },
+                { targets:[6],data: "unit_name" },
+                { targets:[7],data: "order_status_name" },
+                { targets:[8],data: "order_date"},
+                { targets:[9],data: "order_date",
                     render: function (data, type, full, meta){
                       var _shipped='<button class="btn btn-success btn-xs" name="shipped" style="margin:2px;" data-toggle="tooltip" data-placement="top">Shipped </button>';
                       var _processing='<button class="btn btn-primary btn-xs" name="processing" data-toggle="tooltip" data-placement="top">Processing </button>';

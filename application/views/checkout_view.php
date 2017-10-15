@@ -113,9 +113,10 @@
                   			$ordertotal=0; $shippingfee=50;
                   			foreach($products_cart as $row){
               				?>
-                      <input type="hidden" name="product_id[]" value="<?php echo $row->product_id; ?>"  value="" readonly/>
-            					<input type="hidden" name="order_qty[]" value="<?php echo $row->quantity; ?>"  value="" readonly/>
-            					<input type="hidden" name="order_price[]" value="<?php echo $row->price*$row->quantity; ?>"  value="" readonly/>
+                      <input type="hidden" name="product_id[]" value="<?php echo $row->product_id; ?>" readonly/>
+            					<input type="hidden" name="order_qty[]" value="<?php echo $row->quantity; ?>"  readonly/>
+            					<input type="hidden" name="order_price[]" value="<?php echo $row->price*$row->quantity; ?>" readonly/>
+                      <input type="hidden" name="unit_id[]" value="<?php echo $row->unit_id; ?>" readonly/>
                       <div class="item row d-flex align-items-center">
                         <div class="col-4">
                           <div class="d-flex align-items-center"><img src="<?php echo $row->image1; ?>" alt="..." class="img-fluid">
@@ -129,6 +130,7 @@
 
                         <div class="col-2"><span>₱&nbsp<?php echo number_format( ($row->price*$row->quantity)-$discount,2); ?></span></div>
                       </div>
+
                       <?php
                 				$ordertotal+=$row->price*$row->quantity;
                 			}

@@ -64,12 +64,14 @@ class Order extends CORE_Controller {
                 $product_id = $this->input->post('product_id', TRUE);
                 $order_qty = $this->input->post('order_qty', TRUE);
                 $order_price = $this->input->post('order_price', TRUE);
+                $unit_id = $this->input->post('unit_id', TRUE);
                 $i=0;
                 foreach($product_id as $prod){
                   $m_order_items->product_id = $prod;
                   $m_order_items->order_qty = $order_qty[$i];
                   $m_order_items->order_price = $order_price[$i];
                   $m_order_items->order_id = $order_id;
+                  $m_order_items->unit_id = $unit_id[$i];
                   $m_order_items->save();
                   $m_products->set('qty','qty-'.$order_qty[$i]);
 			            $m_products->modify($prod);
