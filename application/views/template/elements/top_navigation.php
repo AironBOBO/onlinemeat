@@ -23,7 +23,7 @@
 					<li class="nav-item"><a href="ProductCategory?searchitem=" class="nav-link">Shop</a>
 					</li>
 
-					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a>
+					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a>
 					</li>
 					<li class="nav-item"><a href="contact.html" class="nav-link">About</a>
 					</li>

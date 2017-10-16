@@ -38,7 +38,7 @@
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">First Name *</label>
-                        <input type="text" name="user_fname" placeholder="Enter your password" required="required" class="form-control">
+                        <input type="text" name="user_fname" placeholder="Enter your first name" required="required" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -46,7 +46,7 @@
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Last Name *</label>
-                        <input type="text" name="user_lname" placeholder="Enter your password" required="required" class="form-control">
+                        <input type="text" name="user_lname" placeholder="Enter your last name" required="required" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -54,7 +54,7 @@
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Address *</label>
-                        <input type="text" name="user_address" placeholder="Enter your password" required="required" class="form-control">
+                        <input type="text" name="user_address" placeholder="Enter your address" required="required" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -62,7 +62,7 @@
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Contact # *</label>
-                        <input type="text" name="user_mobile" placeholder="Enter your password" required="required" class="form-control input-text">
+                        <input type="text" name="user_mobile" placeholder="Enter your contact" required="required" class="form-control input-text">
                       </div>
                     </div>
                   </div>
@@ -78,7 +78,7 @@
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Confirm Password *</label>
-                        <input type="password" id="user_pwordtmp" name="user_pwordtmp" placeholder="Enter your password" required="required" class="form-control">
+                        <input type="password" id="user_pwordtmp" name="user_pwordtmp" placeholder="Enter your confirm password" required="required" class="form-control">
                       </div>
                     </div>
                   </div>
