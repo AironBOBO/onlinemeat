@@ -78,7 +78,7 @@
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Confirm Password *</label>
-                        <input type="password" id="user_pwordtmp" name="user_pwordtmp" placeholder="Enter your confirm password" required="required" class="form-control">
+                        <input type="password" id="user_pwordtmp" name="user_pwordtmp" placeholder="Confirm your password" required="required" class="form-control">
                       </div>
                     </div>
                   </div>
