@@ -92,11 +92,9 @@
         <div class="site-links col-lg-2 col-md-6">
           <h5 class="text-uppercase">Shop</h5>
           <ul class="list-unstyled">
-            <li> <a href="#">For Women</a></li>
-            <li> <a href="#">For Men</a></li>
-            <li> <a href="#">Stores</a></li>
-            <li> <a href="#">Our Blog</a></li>
-            <li> <a href="#">Shop</a></li>
+            <li> <a href="#">Meat</a></li>
+            <li> <a href="#">Vegetables</a></li>
+            <li> <a href="#">Fish</a></li>
           </ul>
         </div>
         <div class="site-links col-lg-2 col-md-6">
@@ -126,7 +124,7 @@
     <div class="container">
       <div class="row d-flex align-items-center">
         <div class="text col-md-6">
-          <p>&copy; 2017 <a href="https://ondrejsvestka.cz/" target="_blank">Ondrej Svestka </a> All rights reserved.</p>
+          <p>&copy; 2017 <a href="#" target="_blank">Gerona Marketplace </a> All rights reserved.</p>
         </div>
         <div class="payment col-md-6 clearfix">
           <ul class="payment-list list-inline-item pull-right">
