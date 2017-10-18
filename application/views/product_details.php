@@ -64,7 +64,7 @@
             </div>
             <ul class="CTAs list-inline">
 							<?php if($this->session->user_id){ ?>
-              <li class="list-inline-item"><a href="javascript:void();" class="btn btn-template wide addtocart"> <i class="icon-cart"></i>Add to Cart</a></li></ul>
+              <li class="list-inline-item"> <button type="button" class="btn btn-template wide addtocart" data-toggle="modal" data-target="#modalcart"><i class="icon-cart"></i>Add to Cart </button></li></ul>
 							<input type="hidden" class="d_productid" value="<?php echo $product_info[0]->product_id; ?>">
 							<input type="hidden" class="d_qty" value="<?php echo $product_info[0]->qty; ?>">
 						<?php } else { ?>
@@ -73,6 +73,28 @@
 					</div>
         </div>
       </div>
+
+      <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modalcart" role="dialog">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <p>Out of Stock</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </section>
     <section class="product-description no-padding">
       <div class="container">
@@ -93,6 +115,8 @@
           </div> -->
         </div>
       </div>
+
+
     </section>
     <section class="related-products">
       <div class="container">
@@ -180,13 +204,13 @@
         _quantitybuy = $('.quantity-no').val();
         _unit_id = $('.d_unit_id').val();
         if(_product_qty<_quantitybuy){
-          alert('Out of Stock');
+          $('#modalcart').modal('show');
         }
         else{
           AddToCartFunc(_product_id).done(function(response){
             window.location.href = "ShoppingCart";
-          });
-        }
+        });
+       }
 
       });
 
