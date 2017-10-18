@@ -92,14 +92,6 @@
 		              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $rows->image1; ?>" alt="product" class="img-fluid">
 		                <div class="hover-overlay d-flex align-items-center justify-content-center">
 		                  <div class="CTA d-flex align-items-center justify-content-center">
-		                    <?php if($rows->qty==0){  if($this->session->user_id){ ?>
-		                    <a href="javascript:void()" class="outofstock"><i class="fa fa-shopping-cart"></i></a>
-		                    <?php } else {?>
-		                    <a href="javascript:void()" class="logintobuy"><i class="fa fa-shopping-cart"></i></a>
-		                    <?php } ?>
-		                    <?php } else {?>
-		                    <a href="#" id="<?php echo $rows->product_id; ?>" class="addtocartrow"><i class="fa fa-shopping-cart"></i></a>
-		                    <?php } ?>
 		                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
 		                    <a href="javascript:void()" class="quick-view viewtocart"><i class="fa fa-arrows-alt"></i></a>
 

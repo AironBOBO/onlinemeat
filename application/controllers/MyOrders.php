@@ -44,18 +44,20 @@ class MyOrders extends CORE_Controller {
 
         $cat['myoders']=$m_orders->get_list(
           'user_id='.$user_id,
-          'orders.*,products.*,order_items.*,order_status.order_status_name',
+          'orders.*,products.*,order_items.*,order_status.order_status_name,unit.*,discount.*',
                     array(
                           array('order_items','order_items.order_id=orders.order_id','left'),
                           array('products','products.product_id=order_items.product_id','left'),
                           array('order_status','order_status.order_status_id=order_items.order_status_id','left'),
+                          array('unit','unit.unit_id=order_items.unit_id','left'),
+                          array('discount','discount.discount_id=unit.discount_id','left'),
                       )
                     );
 
         $data['_footer']=$this->load->view('template/elements/footer','',TRUE);
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
-        $data['_top_navigation']=$this->load->view('template/elements/top_navigationforshoppingcart',$cat,TRUE);
+        $data['_top_navigation']=$this->load->view('template/elements/top_navigation',$cat,TRUE);
         $this->load->view('my_orders_view',$data);
         $data['title'] = 'Dashboard';
     }

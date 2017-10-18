@@ -205,6 +205,7 @@
         _unit_id = $('.d_unit_id').val();
         if(_product_qty<_quantitybuy){
           $('#modalcart').modal('show');
+          return;
         }
         else{
           AddToCartFunc(_product_id).done(function(response){

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Myinfo extends CORE_Controller {
+class Profile extends CORE_Controller {
 
     function __construct()
     {
@@ -42,22 +42,12 @@ class Myinfo extends CORE_Controller {
           'category.*'
                     );
 
-        $cat['myoders']=$m_orders->get_list(
-          'user_id='.$user_id,
-          'orders.*,products.*,order_items.*,order_status.order_status_name',
-                    array(
-                          array('order_items','order_items.order_id=orders.order_id','left'),
-                          array('products','products.product_id=order_items.product_id','left'),
-                          array('order_status','order_status.order_status_id=order_items.order_status_id','left'),
-                      )
-                    );
-
         $data['_footer']=$this->load->view('template/elements/footer','',TRUE);
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
-        $data['_top_navigation']=$this->load->view('template/elements/top_navigationforshoppingcart',$cat,TRUE);
-        $this->load->view('my_info_view',$data);
-        $data['title'] = 'Dashboard';
+        $data['_top_navigation']=$this->load->view('template/elements/top_navigation',$cat,TRUE);
+        $this->load->view('profile_view',$data);
+        $data['title'] = 'Profile';
     }
 
     function transaction($txn = null) {

@@ -38,8 +38,8 @@
 					?>
 						<div class="user dropdown show"><a id="userdetails" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="icon-profile"></i></a>
 							<ul aria-labelledby="userdetails" class="dropdown-menu">
-								<li class="dropdown-item"><a href="<?php if($this->session->user_group_id==1){ ?>Products<?php } else { ?>Profile<?php } ?>"><?php if($this->session->user_group_id==1){ ?>Admin Panel<?php } else { ?>My Orders<?php } ?></a></li>
-								<li class="dropdown-item"><a href="#">Orders       </a></li>
+								<li class="dropdown-item"><a href="<?php if($this->session->user_group_id==1){ ?>Products<?php } else { ?>Profile<?php } ?>"><?php if($this->session->user_group_id==1){ ?>Admin Panel<?php } else { ?>Profile<?php } ?></a></li>
+								<?php echo ($this->session->user_group_id==2) ? '<li class="dropdown-item"><a href="MyOrders">Orders</a></li>' : '';?>
 								<li class="dropdown-divider">     </li>
 								<li class="dropdown-item"><a href="MyAccount/Transaction/logout">Logout</a></li>
 							</ul>
