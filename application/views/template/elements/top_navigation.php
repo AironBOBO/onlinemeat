@@ -23,9 +23,9 @@
 					<li class="nav-item"><a href="ProductCategory?searchitem=" class="nav-link">Shop</a>
 					</li>
 
-					<li class="nav-item"><a href="contact.php" class="nav-link">Contact</a>
+					<li class="nav-item"><a href="Contact" class="nav-link">Contact</a>
 					</li>
-					<li class="nav-item"><a href="about.php" class="nav-link">About</a>
+					<li class="nav-item"><a href="About" class="nav-link">About</a>
 					</li>
 				</ul>
 				<div class="right-col d-flex align-items-lg-center flex-column flex-lg-row">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Contact extends CORE_Controller {
+class About extends CORE_Controller {
 
     function __construct()
     {
@@ -60,7 +60,7 @@ class Contact extends CORE_Controller {
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
         $data['_top_navigation']=$this->load->view('template/elements/top_navigation',$cat,TRUE);
-        $this->load->view('contact_view',$data);
+        $this->load->view('about_view',$data);
         $data['title'] = 'Dashboard';
     }
 
