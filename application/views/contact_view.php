@@ -45,7 +45,7 @@
                 <div class="icon icon-street-map"></div>
               </div>
               <h3>Address</h3>
-              <p>13/25 New Avenue<br>New Heaven, 45Y 73<br>England, <strong>Great Britain</strong></p>
+              <p>13/25 New Avenue<br>New Heaven, 45Y 73J<br>England, <strong>Great Britain</strong></p>
             </div>
             <div class="col-md-4">
               <div class="contact-icon">
@@ -60,14 +60,18 @@
                 <div class="icon icon-envelope"></div>
               </div>
               <h3>Electronic support</h3>
-              <p>Please feel free to write an email to us.</p>
+              <p>Please feel free to write an email to us or to use our electronic ticketing system.</p>
               <ul class="list-style-none">
-                <li><strong><a href="mailto:">tsuccsmeat09@gmail.com</a></strong></li>
+                <li><strong><a href="mailto:">info@fakeemail.com</a></strong></li>
+                <li><strong><a href="#">
+                      Ticketio
+                       - our ticketing support platform</a></strong></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
+      <div id="map">                                       </div>
       <section>
         <div class="container">
           <header class="mb-5">
