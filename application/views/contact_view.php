@@ -60,12 +60,9 @@
                 <div class="icon icon-envelope"></div>
               </div>
               <h3>Electronic support</h3>
-              <p>Please feel free to write an email to us or to use our electronic ticketing system.</p>
+              <p>Please feel free to write an email to us.</p>
               <ul class="list-style-none">
-                <li><strong><a href="mailto:">info@fakeemail.com</a></strong></li>
-                <li><strong><a href="#">
-                      Ticketio
-                       - our ticketing support platform</a></strong></li>
+                <li><strong><a href="mailto:">tsuccsmeat09@gmail.com</a></strong></li>
               </ul>
             </div>
           </div>

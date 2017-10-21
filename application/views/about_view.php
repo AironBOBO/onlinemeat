@@ -79,7 +79,7 @@
       </div>
     </section>
     <!-- Divider Section-->
-    <section style="background: url(img/divider-bg.jpg);" class="divider">
+    <!--<section style="background: url(img/divider-bg.jpg);" class="divider">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
@@ -89,8 +89,8 @@
           </div>
         </div>
       </div>
-    </section>
-    <section class="padding-small">
+    </section>-->
+  <!--  <section class="padding-small">
       <div class="container">
         <header>
           <h2 class="h1">Our team</h2>
@@ -107,7 +107,7 @@
                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
               </div>
             </div>
-            <!-- /.team-member            -->
+             /.team-member
           </div>
           <div class="col-md-3 col-6">
             <div class="team-member">
@@ -119,7 +119,7 @@
                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
               </div>
             </div>
-            <!-- /.team-member            -->
+
           </div>
           <div class="col-md-3 col-6">
             <div class="team-member">
@@ -131,7 +131,7 @@
                 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
               </div>
             </div>
-            <!-- /.team-member            -->
+
           </div>
           <div class="col-md-3 col-6">
             <div class="team-member">

@@ -51,7 +51,7 @@
           <div class="item d-flex align-items-center">
             <div class="icon"><i class="icon-truck"></i></div>
             <div class="text">
-              <h6 class="no-margin text-uppercase">Free shipping &amp; return</h6><span>Free Shipping over $300</span>
+              <h6 class="no-margin text-uppercase">Fast shipping &amp; return</h6><span>Fast Shipping only in Town of Gerona/span>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <div class="item d-flex align-items-center">
             <div class="icon"><i class="icon-coin"></i></div>
             <div class="text">
-              <h6 class="no-margin text-uppercase">Money back guarantee</h6><span>30 Days Money Back Guarantee</span>
+              <h6 class="no-margin text-uppercase">Money back guarantee</h6><span>7 Days Money Back Guarantee</span>
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@
     </div>
   </div>
 </footer>
-<button type="button" data-toggle="collapse" data-target="#style-switch" id="style-switch-button" class="btn btn-primary btn-sm d-none d-lg-block"><i class="fa fa-cog fa-2x"></i></button>
+<!--<button type="button" data-toggle="collapse" data-target="#style-switch" id="style-switch-button" class="btn btn-primary btn-sm d-none d-lg-block"><i class="fa fa-cog fa-2x"></i></button>
 <div id="style-switch" class="collapse">
   <h4 class="text-uppercase">Select theme colour</h4>
   <form class="mb-3">
@@ -154,4 +154,4 @@
   </form>
   <p><img src="assets/images/template-mac.png" alt="" class="img-fluid"></p>
   <p class="text-muted text-small">Stylesheet switching is done via JavaScript and can cause a blink while page loads. This will not happen in your production code.</p>
-</div>
+</div>-->
