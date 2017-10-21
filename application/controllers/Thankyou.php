@@ -73,8 +73,8 @@ class Thankyou extends CORE_Controller {
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'trylangto4@gmail.com';                 // SMTP username
-        $mail->Password = 'qweqweqweqwe';                           // SMTP password
+        $mail->Username = 'tsuccsmeat09@gmail.com';                 // SMTP username
+        $mail->Password = 'tsuccsmeat';                           // SMTP password
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
 
@@ -100,7 +100,7 @@ class Thankyou extends CORE_Controller {
         $response['email_stat']="success";
         }
 
-        // $this->load->view('thankyou_view',$data);
+        $this->load->view('thankyou_view',$data);
 
         echo json_encode($response);
     }
