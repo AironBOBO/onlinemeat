@@ -51,7 +51,7 @@
           <div class="item d-flex align-items-center">
             <div class="icon"><i class="icon-truck"></i></div>
             <div class="text">
-              <h6 class="no-margin text-uppercase">Fast shipping &amp; return</h6><span>Fast Shipping only in Town of Gerona/span>
+              <h6 class="no-margin text-uppercase">Fast shipping &amp; return</h6><span>Fast Shipping only in Town of Gerona</span>
             </div>
           </div>
         </div>
