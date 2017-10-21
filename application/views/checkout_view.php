@@ -38,8 +38,8 @@
           <div class="col-lg-8">
             <ul class="nav nav-pills">
               <li class="nav-item"><a href="javascript:void();" class="nav-link active">Address</a></li>
-              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled light">Payment Method </a></li>
-              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled">Order Review</a></li>
+              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled light delmethod">Delivery Method </a></li>
+              <li class="nav-item"><a href="javascript:void();" class="nav-link disabled ordermethod">Order Review</a></li>
               <li class="nav-item"><a href="javascript:void();" class="nav-link disabled">Thank You</a></li>
             </ul>
 
@@ -178,22 +178,29 @@
     $('#gotopayment').click(function(){
       $('.coladdress').hide();
       $('.colopaymentmethod').fadeIn();
+      $('.delmethod').removeClass('disabled');
+      $('.delmethod').addClass('active');
     });
 
     $('#gobackpayment').click(function(){
       $('.colsummary').hide();
       $('.colopaymentmethod').fadeIn();
-
+      $('.ordermethod').removeClass('active');
+      $('.ordermethod').addClass('disabled');
     });
 
     $('#gotoaddress').click(function(){
       $('.colopaymentmethod').hide();
       $('.coladdress').fadeIn();
+      $('.delmethod').removeClass('active');
+      $('.delmethod').addClass('disabled');
     });
 
     $('#gotosummary').click(function(){
       $('.colopaymentmethod').hide();
       $('.colsummary').fadeIn();
+      $('.ordermethod').removeClass('disabled');
+      $('.ordermethod').addClass('active');
     });
 
     $('.continue').click(function(){
