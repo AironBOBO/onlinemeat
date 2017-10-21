@@ -27,29 +27,50 @@
             <li class="breadcrumb-item active">My Profile</li>
           </ul>
         </div>
-        <div class="container-fluid">
-  <div class="row">
-  <div class="col-md-4 col-xs-10 col-sm-6 col-md-4">
-       <img alt="User Pic" src="assets/images/admin.png" id="profile-image1" class="img-circle img-responsive">
-    </div>
-    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                         <div class="container" >
-                           <h2><?php echo $this->session->user_fname; ?>
-                           <?php echo $this->session->user_lname; ?></h2>
-                           <br /><br />
-                      <!--     <p>an <b> Employee</b></p>-->
-                         </div>
-                          <hr>
-                         <ul class="container details" >
-                           <p><label class="form-label">Contact No:</label><span class="glyphicon glyphicon-phone-alt" style="width:10px;"></span><?php echo $this->session->user_mobile; ?></p>
-                           <p><label class="form-label">Address: </label><span class="glyphicon glyphicon-phone-alt" style="width:10px;"></span><?php echo $this->session->user_address; ?></p>
-                            <p><label class="form-label">Date Joined:</label><span class="glyphicon glyphicon-phone-alt" style="width:10px;"></span><?php echo $this->session->date_created; ?></p>
-                         </ul>
-                         <hr>
-                         <!--<div class="col-sm-5 col-xs-6 tital " >Date Of Birth: 15 Jun 2016</div>-->
-                     </div>
-  </div>
-</div>
+        <div class="row">
+          <div class="col-sm-6">
+                <img alt="User Pic" src="assets/images/admin.png" id="profile-image1" class="img-circle img-responsive">
+          </div>
+          <div class="col-sm-6">
+            <form id="frm_register">
+                  <div class="row">
+                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
+                      <div class="form-group">
+                        <label for="name" class="form-label">First Name</label>
+                        <input type="text" name="user_fname" value="<?php echo $this->session->user_fname; ?>" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Last Name</label>
+                        <input type="text" name="user_lname" value="<?php echo $this->session->user_lname; ?>" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Address</label>
+                        <input type="text" name="user_address" value="<?php echo $this->session->user_address; ?>" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Contact Number</label>
+                        <input type="text" name="user_mobile" value="<?php echo $this->session->user_mobile; ?>" class="form-control input-text">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+          </div>
+          <div class="col-sm-6">
+
+          </div>
+        </div>
       </div>
     </div>
     </section>
