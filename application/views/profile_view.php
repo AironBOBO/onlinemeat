@@ -28,8 +28,9 @@
           </ul>
         </div>
         <div class="row">
-          <div class="col-sm-6">
-                <img alt="User Pic" src="assets/images/admin.png" id="profile-image1" class="img-circle img-responsive">
+          <div class="col-sm-4">
+                <img alt="User Pic" src="assets/images/admin.png "width=450 height="300" id="profile-image1" class="img-circle img-responsive"> <br></br>
+                <input type="file" name="imageupload" " class="form-control">
           </div>
           <div class="col-sm-6">
             <form id="frm_register">
@@ -61,7 +62,8 @@
                     <div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Contact Number</label>
-                        <input type="text" name="user_mobile" value="<?php echo $this->session->user_mobile; ?>" class="form-control input-text">
+                        <input type="text" name="user_mobile" value="<?php echo $this->session->user_mobile; ?>" class="form-control input-text"> <br></br>
+                          <button type="button" class="btn btn-template wide" >Update</button>
                       </div>
                     </div>
                   </div>
