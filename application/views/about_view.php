@@ -79,76 +79,7 @@
       </div>
     </section>
     <!-- Divider Section-->
-    <section style="background: url(img/divider-bg.jpg);" class="divider">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <p>Old Collection                  </p>
-            <h2 class="h1 text-uppercase no-margin">Huge Sales</h2>
-            <p>At our outlet stores</p><a href="#" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="padding-small">
-      <div class="container">
-        <header>
-          <h2 class="h1">Our team</h2>
-          <p class="lead text-muted">This is the lead paragraph of the article. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
-        </header>
-        <div class="row team">
-          <div class="col-md-3 col-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-1.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h5"><a href="#">Han Solo</a></h3>
-              <p class="role">founder</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member            -->
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-2.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h5"><a href="#">Luke Skywalker</a></h3>
-              <p class="role">CTO</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member            -->
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-3.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h5"><a href="#">Princess Leia</a></h3>
-              <p class="role">Team Leader</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member            -->
-          </div>
-          <div class="col-md-3 col-6">
-            <div class="team-member">
-              <div class="image"><img src="img/person-4.jpg" alt="" class="img-fluid rounded-circle"></div>
-              <h3 class="h5"><a href="#">Jabba Hut</a></h3>
-              <p class="role">Lead developer</p>
-              <div class="social"><a href="#" class="external facebook"><i class="fa fa-facebook"></i></a><a href="#" class="external gplus"><i class="fa fa-google-plus"></i></a><a href="#" class="external twitter"><i class="fa fa-twitter"></i></a><a href="#" class="email"><i class="fa fa-envelope"></i></a></div>
-              <div class="text">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              </div>
-            </div>
-            <!-- /.team-member            -->
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Footer-->
+          <!-- Footer-->
 
   <!--  <button type="button" data-toggle="collapse" data-target="#style-switch" id="style-switch-button" class="btn btn-primary btn-sm d-none d-lg-block"><i class="fa fa-cog fa-2x"></i></button>
     <div id="style-switch" class="collapse">
