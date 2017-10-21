@@ -72,6 +72,13 @@ class ProductDetails extends CORE_Controller {
                           array('category','category.category_id=products.category_id','left')
                       )
                     );
+        if (is_numeric($this->input->get('category_id',TRUE))) {
+          $category_id = $this->input->get('category_id',TRUE);
+          $data['similar_items']=$m_products->get_similaritems($category_id);
+        }
+        else{
+          $data['similar_items']="";
+        }
 
 
         $data['category']=$m_category->get_list(

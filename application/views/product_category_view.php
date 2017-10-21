@@ -18,11 +18,11 @@
     <section class="hero hero-page gray-bg padding-small">
       <div class="container">
         <div class="row d-flex">
-          <div class="col-md-9 order-2 order-md-1">
+          <div class="col-md-8 order-2 order-md-1">
             <h1>Shop</h1>
             <p class="lead text-muted">Hello Good day!, Happy Shopping!</p>
           </div>
-          <ul class="breadcrumb d-flex justify-content-start justify-content-md-center col-md-3 text-right order-1 order-md-2">
+          <ul class="breadcrumb d-flex justify-content-start justify-content-md-center col-md-4 text-right order-1 order-md-2">
             <li class="breadcrumb-item">Shop</li>
 
               <?php
@@ -92,8 +92,8 @@
 		              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $rows->image1; ?>" alt="product" class="img-fluid">
 		                <div class="hover-overlay d-flex align-items-center justify-content-center">
 		                  <div class="CTA d-flex align-items-center justify-content-center">
-		                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
-		                    <a href="javascript:void()" class="quick-view viewtocart"><i class="fa fa-arrows-alt"></i></a>
+		                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
+		                    <!-- <a href="javascript:void()" class="quick-view viewtocart"><i class="fa fa-arrows-alt"></i></a> -->
 
 		                  </div>
 
@@ -108,7 +108,7 @@
 					      }
 					    ?>
             </div>
-            <nav aria-label="page navigation example" class="d-flex justify-content-center">
+            <!-- <nav aria-label="page navigation example" class="d-flex justify-content-center">
               <ul class="pagination pagination-custom">
                 <li class="page-item"><a href="#" aria-label="Previous" class="page-link"><span aria-hidden="true">Prev</span><span class="sr-only">Previous</span></a></li>
                 <li class="page-item"><a href="#" class="page-link active">1       </a></li>
@@ -118,7 +118,7 @@
                 <li class="page-item"><a href="#" class="page-link">5 </a></li>
                 <li class="page-item"><a href="#" aria-label="Next" class="page-link"><span aria-hidden="true">Next</span><span class="sr-only">Next     </span></a></li>
               </ul>
-            </nav>
+            </nav> -->
           </div>
           <!-- / Grid End-->
         </div>
