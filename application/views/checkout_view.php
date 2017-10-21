@@ -197,6 +197,9 @@
     });
 
     $('#gotosummary').click(function(){
+      if(!$('#payment-method-2').is(':checked')){
+        return;
+      }
       $('.colopaymentmethod').hide();
       $('.colsummary').fadeIn();
       $('.ordermethod').removeClass('disabled');

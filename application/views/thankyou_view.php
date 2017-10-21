@@ -23,27 +23,16 @@
 
 <?php echo $_top_navigation; ?>
 
-<!-- Titlebar
-================================================== -->
-<section class="parallax-titlebar fullwidth-element"  data-background="#000" data-opacity="0.45" data-height="160">
-
-	<img src="assets/images/cart.jpg" alt="" />
-	<div class="parallax-overlay"></div>
-
-
-	<div class="parallax-content">
-		<h2>Thank you for your order <span></span></h2>
-
-		<nav id="breadcrumbs">
-			<ul>
-				<li><a href="Index">Home</a></li>
-				<li>Thank You</li>
-			</ul>
-		</nav>
+<section class="hero hero-page gray-bg padding-small">
+	<div class="container">
+		<div class="row d-flex">
+			<div class="col-lg-12 order-2 order-lg-1">
+				<h3>Thank you for your order  <?php echo $this->session->user_fullname; ?>.</h3>
+				<p class="text-muted">An email is sent to your email address <u><?php echo $this->session->user_name; ?></u></p>
+			</div
+		</div>
 	</div>
-
 </section>
-
 
 <div class="container cart">
 
@@ -56,51 +45,49 @@
       <?php $ordertotal=0;
 				if(count($order_info)!=0){
 					?>
-				<div class="contentprint">
-					<div class="row">
-            <div class="">
-                <address>
-                    <strong>Daffy's Car Accessories</strong>
-                    <br>
-                    Mc Arthur Hi-Way,Zone C San Miguel
-                    <br>
-                    Tarlac City, Tarlac
-                    <br>
-                    <abbr title="Phone">P:</abbr> 0929 799 4700
-                </address>
-            </div>
-            <div class="" style="float:right;text-align:right;">
-								<p style="margin:0;padding:0;">
-										<em>Ordered By : <?php echo $order_info[0]->full_name; ?></em>
-								</p>
-								<p style="margin:0;padding:0;">
-										<em>Shipping Address : <?php echo $order_info[0]->order_address; ?></em>
-								</p>
-                <p style="margin:0;padding:0;">
-                    <em>Date : <?php echo $order_info[0]->order_date; ?></em>
-                </p>
-                <p style="margin:0;padding:0;">
-                    <em>Receipt #: <?php echo $order_info[0]->order_no; ?></em>
-                </p>
-            </div>
-        	</div>
-					<table class="cart-table responsive-table">
+				<center>
+				<div class="contentprint" style="border:2px solid gray;border-radius:10px;padding:10px;margin:50px;">
+						<table style="width:80%">
+								<hr>
+                <tr>
+									<td width="70%"><b>Gerona Marketplace</b></td>
+									<td>Ordered By : <b><?php echo $order_info[0]->full_name; ?></b></td>
+                </tr>
+								<tr>
+									<td width="80"><b>Gerona Tarlac</b></td>
+									<td>Shipping Address : <b><?php echo $order_info[0]->order_address; ?></b></td>
+                </tr>
+								<tr>
+									<td width="80"></td>
+									<td>Date : <b><?php echo $order_info[0]->order_date; ?></b></td>
+                </tr>
+								<tr>
+									<td width="80"></td>
+									<td>Receipt #: <b><?php echo $order_info[0]->order_no; ?></b></td>
+                </tr>
+						</table>
+						<hr>
+					<table style="width:70%;">
 
-						<tr>
+						<tr style="border-bottom:1px solid black;">
 							<th>Item</th>
+							<th>Unit</th>
 							<th>Price</th>
 							<th>Quantity</th>
+							<th>Discount</th>
 							<th>Total</th>
 						</tr>
 					<?php
 					foreach($order_info as $row){
 	          ?>
 
-	          <tr class="Test">
-							<td class="cart-title"><a href="#"><input type="hidden" name="product_name" value="<?php echo $row->product_name; ?>"><?php echo $row->product_name; ?></a></td>
+	          <tr >
+							<td ><a href="#"><?php echo $row->product_name; ?></a></td>
+							<td ><?php echo $row->unit_name; ?></td>
 	    				<td>₱&nbsp<price class="price"><?php echo $row->price; ?></price></td>
-	    				<td class="test"><?php echo $row->order_qty; ?></td>
-	    				<td class="cart-total">₱&nbsp<totalprice class="totalprice"><?php echo $row->order_price; ?></totalprice></td>
+	    				<td ><?php echo $row->order_qty; ?></td>
+							<td ><?php echo $row->discount_desc; ?></td>
+	    				<td >₱&nbsp<totalprice class="totalprice"><?php echo $row->order_price; ?></totalprice></td>
 	    			</tr>
 
 						<!-- Apply Coupon Code / Buttons -->
@@ -110,32 +97,26 @@
 	        }
 					$shipping_free=100;
 					?>
-					<tr class="Test">
+					<tr style="border-top:1px solid black;">
+						<td><b>Shipping Fee</b></td>
+						<td><b><?php echo $order_info[0]->shipping_fee; ?></b></td>
 						<td></td>
 						<td></td>
-						<td><h3 style="font-weight:bold;">Shipping Fee</h3></td>
-						<td class="cart-total">₱ <totalprice class="totalprice">100</totalprice></td>
+						<td></td>
+						<td></td>
 					</tr>
-					<tr class="Test">
+					<tr>
+						<td><b>Subtotal</b></td>
+						<td><b>₱ <?php echo $ordertotal+$shipping_free; ?></b></td>
 						<td></td>
 						<td></td>
-						<td><h3 style="font-weight:bold;">Subtotal</h3></td>
-						<td class="cart-total">₱ <totalprice class="totalprice"><?php echo $ordertotal+$shipping_free; ?></totalprice></td>
+						<td></td>
+						<td></td>
 					</tr>
 
 					</table>
 				</div>
-					<table class="cart-table bottom">
-
-						<tr>
-						<th>
-							<div class="cart-btns">
-								<a class="button color cart-btns proceed printreceipt">Print Receipt</a>
-							</div>
-						</th>
-						</tr>
-
-					</table>
+				</center>
 					<?php
 
 				}

@@ -63,6 +63,7 @@ class MyAccount extends CORE_Controller {
                             $this->session->set_userdata(
                                 array(
                                     'user_id'=>$result->row()->user_id,
+                                    'user_name'=>$result->row()->user_name,
                                     'user_fullname'=>$result->row()->user_fullname,
                                     'user_fname'=>$result->row()->user_fname,
                                     'user_lname'=>$result->row()->user_lname,
