@@ -11,8 +11,8 @@ class Profile extends CORE_Controller {
         $this->load->model('Category_model');
         $this->load->model('Cart_model');
         $this->load->model('Order_model');
-        // $this->load->model('Users_model');
-        // $this->load->model('Wall_post_model');
+        $this->load->model('Barangay_model');
+        
         $this->validate_session();
 
     }
@@ -25,6 +25,7 @@ class Profile extends CORE_Controller {
         $m_products=$this->Products_model;
         $m_cart=$this->Cart_model;
         $m_orders=$this->Order_model;
+        $m_barangay=$this->Barangay_model;
         $data['_title']="Gerona Marketplace";
         //to view categories in navigation
         $cat['products_cart']=$m_cart->get_list(
@@ -41,6 +42,7 @@ class Profile extends CORE_Controller {
           'category.is_deleted=0 AND category.is_active=1',
           'category.*'
                     );
+        $data['barangay']=$m_barangay->get_list();
 
         $data['_footer']=$this->load->view('template/elements/footer','',TRUE);
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);

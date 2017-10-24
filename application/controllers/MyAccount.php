@@ -72,7 +72,10 @@ class MyAccount extends CORE_Controller {
                                     'user_photo'=>$result->row()->photo_path,
                                     'date_created'=>$result->row()->date_created,
                                     'user_group_id'=>$result->row()->user_group_id,
-                                    'photo_path'=>$result->row()->photo_path
+                                    'photo_path'=>$result->row()->photo_path,
+                                    'brgy_id'=>$result->row()->brgy_id,
+                                    'brgy_name'=>$result->row()->brgy_name,
+
                                 )
                             );
 

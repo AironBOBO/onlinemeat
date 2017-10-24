@@ -43,14 +43,16 @@ class MyOrders extends CORE_Controller {
                     );
 
         $cat['myoders']=$m_orders->get_list(
-          'user_id='.$user_id,
-          'orders.*,products.*,order_items.*,order_status.order_status_name,unit.*,discount.*',
+          'user_accounts.user_id='.$user_id,
+          'orders.*,products.*,order_items.*,order_status.order_status_name,unit.*,discount.*,brgy.*',
                     array(
                           array('order_items','order_items.order_id=orders.order_id','left'),
                           array('products','products.product_id=order_items.product_id','left'),
                           array('order_status','order_status.order_status_id=order_items.order_status_id','left'),
                           array('unit','unit.unit_id=order_items.unit_id','left'),
                           array('discount','discount.discount_id=unit.discount_id','left'),
+                          array('user_accounts','user_accounts.user_id=orders.user_id','left'),
+                          array('brgy','brgy.brgy_id=user_accounts.brgy_id','left'),
                       )
                     );
 

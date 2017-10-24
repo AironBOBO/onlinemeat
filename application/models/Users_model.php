@@ -25,8 +25,9 @@ class Users_model extends CORE_Model{
     }
 
     function authenticate_user($uname,$pword){
-        $this->db->select('ua.user_id,ua.is_active,ua.user_name,ua.user_group_id,ua.photo_path,ua.user_fname,ua.user_lname,ua.user_address,ua.user_mobile,ua.date_created,CONCAT_WS(" ",ua.user_fname,ua.user_mname,ua.user_lname) as user_fullname,ua.photo_path');
+        $this->db->select('brgy.*,ua.user_id,ua.is_active,ua.user_name,ua.user_group_id,ua.photo_path,ua.user_fname,ua.user_lname,ua.user_address,ua.user_mobile,ua.date_created,CONCAT_WS(" ",ua.user_fname,ua.user_mname,ua.user_lname) as user_fullname,ua.photo_path');
         $this->db->from('user_accounts as ua');
+        $this->db->join('brgy', 'brgy.brgy_id = ua.user_id');
         $this->db->where('ua.user_name', $uname);
         $this->db->where('ua.user_pword', sha1($pword));
         return $this->db->get();

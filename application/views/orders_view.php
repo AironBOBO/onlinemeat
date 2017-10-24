@@ -112,7 +112,7 @@
                     exportOptions: {
                 columns: [ 0, 1, 2,3,4,5,6 ]
             },
-            title: "<h4><b>Orders list</b></h4>",
+            title: "Orders list",
             customize: function ( win ) {
                       $(win.document.body)
                           .css( 'font-size', '8pt' );

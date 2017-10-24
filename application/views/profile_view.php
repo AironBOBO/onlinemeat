@@ -27,64 +27,95 @@
             <li class="breadcrumb-item active">My Profile</li>
           </ul>
         </div>
-        <div class="row">
-          <div class="col-sm-4">
-                <img alt="User Pic" src="assets/images/admin.png "width=450 height="300" id="profile-image1" class="img-circle img-responsive"> <br></br>
-                <input type="file" name="imageupload" " class="form-control">
-          </div>
-          <div class="col-sm-6">
-            <form id="frm_register">
-                  <div class="row">
-                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
-                      <div class="form-group">
-                        <label for="name" class="form-label">First Name</label>
-                        <input type="text" name="user_fname" value="<?php echo $this->session->user_fname; ?>" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
-                      <div class="form-group">
-                        <label for="name" class="form-label">Last Name</label>
-                        <input type="text" name="user_lname" value="<?php echo $this->session->user_lname; ?>" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
-                      <div class="form-group">
-                        <label for="name" class="form-label">Address</label>
-                        <input type="text" name="user_address" value="<?php echo $this->session->user_address; ?>" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
-                      <div class="form-group">
-                        <label for="name" class="form-label">Contact Number</label>
-                        <input type="text" name="user_mobile" value="<?php echo $this->session->user_mobile; ?>" class="form-control input-text"> <br></br>
-                          <button type="button" class="btn btn-template wide" >Update</button>
-                      </div>
-                    </div>
-                  </div>
-              </form>
-          </div>
-          <div class="col-sm-6">
+    </section>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="block-body order-summary">
+            <h6 class="text-uppercase">My Account</h6>
+            <ul class="order-menu list-unstyled">
+              <li class="d-flex justify-content-between"><a href="Profile">Profile</a></li>
+              <li class="d-flex justify-content-between"><a href="MyOrders">Orders</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-9" style="margin-top:15px;margin-bottom:15px;">
+          <div class="row">
+            <div class="col-md-4">
+              <center>
+                <img src="<?php if($this->session->user_photo!=""){ echo $this->session->user_photo; } else { ?>assets/img/user.png<?php } ?>" width="200px" height="200px" class="img-responsive" style="border-radius:10px;">
+                <input type="file" name="user_image" class="form-control input-text">
+              </center>
+            
+            </div>
+            <div class="col-md-8">
+              <form id="frm_profile">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">First Name</label>
+                    <input type="text" name="user_fname" value="<?php echo $this->session->user_fname; ?>" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Last Name</label>
+                    <input type="text" name="user_lname" value="<?php echo $this->session->user_lname; ?>" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Address</label>
+                    <input type="text" name="user_address" value="<?php echo $this->session->user_address; ?>" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Barangay</label>
+                    <select class="form-control" style="padding:0;" name="">
+                      <option value="<?php echo $this->session->brgy_id; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $this->session->brgy_name; ?></option>
+                      
+                      <?php foreach($barangay as $brgy){ 
+                        if($this->session->brgy_id!=$brgy->brgy_id){ ?>
+                          <option value="<?php echo $brgy->brgy_id; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $brgy->brgy_name; ?></option>
+                        <?php  }
+                        } ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Contact Number</label>
+                    <input type="text" name="user_mobile" value="<?php echo $this->session->user_mobile; ?>" class="form-control input-text">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name" class="form-label" style="color:white;">Save Changes</label>
+                    <button type="button" class="btn btn-template" style="width:100%;" id="update_profile">Update</button>
+                  </div>
+                  
+                </div>
+              </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    </section>
-
-		<div class="container">
-		</div>
-
 
     <?php echo $_footer; ?>
     <!-- Javascript files-->
     <?php echo $_def_js_files; ?>
     <script>
+      $('#update_profile').click(function(){
+        alert();
+      });
     </script>
   </body>
 

@@ -95,7 +95,7 @@ class Thankyou extends CORE_Controller {
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
         if(!$mail->send()) {
-        $response['email_stat']="failed";
+        $response['email_stat']=$mail->ErrorInfo;
         } else {
         $response['email_stat']="success";
         }

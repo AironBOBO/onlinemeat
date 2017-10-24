@@ -59,6 +59,18 @@
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-sm-6" style="float: none;  margin: 0 auto;">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Barangay *</label>
+                        <select class="form-control" style="padding:0;" name="brgy_id">
+                          <?php foreach($barangay as $brgy){ ?>
+                              <option value="<?php echo $brgy->brgy_id; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $brgy->brgy_name; ?></option>
+                          <?php  } ?>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
 										<div class="col-sm-6" style="float: none;  margin: 0 auto;">
                       <div class="form-group">
                         <label for="name" class="form-label">Contact # *</label>

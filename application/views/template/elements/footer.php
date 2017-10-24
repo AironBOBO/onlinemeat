@@ -57,9 +57,9 @@
         </div>
         <div class="col-lg-4 d-flex justify-content-center">
           <div class="item d-flex align-items-center">
-            <div class="icon"><i class="icon-coin"></i></div>
+            <div class="icon"><i class="fa fa-cutlery"></i></div>
             <div class="text">
-              <h6 class="no-margin text-uppercase">Money back guarantee</h6><span>7 Days Money Back Guarantee</span>
+              <h6 class="no-margin text-uppercase">Fresh Foods guarantee</h6><span>Stored in clean environment</span>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@
           <div class="item d-flex align-items-center">
             <div class="icon"><i class="icon-headphones"></i></div>
             <div class="text">
-              <h6 class="no-margin text-uppercase">020-800-456-747</h6><span>24/7 Available Support</span>
+              <h6 class="no-margin text-uppercase">09165210235</h6><span>Available Support</span>
             </div>
           </div>
         </div>
@@ -80,42 +80,37 @@
       <div class="row">
         <div class="info col-lg-4">
           <div class="logo">Gerona Marketplace</div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <ul class="social-menu list-inline">
+          <p>The future Marketplace of Gerona.</p>
+          <!-- <ul class="social-menu list-inline">
             <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
             <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
             <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
             <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
             <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="site-links col-lg-2 col-md-6">
           <h5 class="text-uppercase">Shop</h5>
           <ul class="list-unstyled">
-            <li> <a href="#">Meat</a></li>
-            <li> <a href="#">Vegetables</a></li>
-            <li> <a href="#">Fish</a></li>
+            <li> <a href="ProductCategory?product_type_id=1">Meat</a></li>
+            <li> <a href="ProductCategory?product_type_id=2">Vegetables</a></li>
+            <li> <a href="ProductCategory?product_type_id=3">Fish</a></li>
           </ul>
         </div>
         <div class="site-links col-lg-2 col-md-6">
-          <h5 class="text-uppercase">Company</h5>
+          <h5 class="text-uppercase">Marketplace</h5>
           <ul class="list-unstyled">
+            <?php if(!$this->session->user_id){ ?>
             <li> <a href="MyAccount">Login</a></li>
-            <li> <a href="#">Register</a></li>
-            <li> <a href="#">Wishlist</a></li>
-            <li> <a href="#">Our Products</a></li>
-            <li> <a href="#">Checkouts</a></li>
+            <li> <a href="Register">Register</a></li>
+            <?php } else{ ?>
+            <li> <a href="ShoppingCart">Shopping Cart</a></li>
+            <li> <a href="Profile">My Profile</a></li>
+            <li> <a href="MyOrders">My Orders</a></li>
+            <?php } ?>
+            <li> <a href="Contact">Contact</a></li>
+            <li> <a href="About">About</a></li>
           </ul>
-        </div>
-        <div class="newsletter col-lg-4">
-          <h5 class="text-uppercase">Daily Offers & Discounts</h5>
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
-          <form action="#" id="newsletter-form">
-            <div class="form-group">
-              <input type="email" name="subscribermail" placeholder="Your Email Address">
-              <button type="submit"> <i class="fa fa-paper-plane"></i></button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
@@ -126,32 +121,7 @@
         <div class="text col-md-6">
           <p>&copy; 2017 <a href="#" target="_blank">Gerona Marketplace </a> All rights reserved.</p>
         </div>
-        <div class="payment col-md-6 clearfix">
-          <ul class="payment-list list-inline-item pull-right">
-            <li class="list-inline-item"><img src="assets/images/visa.svg" alt="..."></li>
-            <li class="list-inline-item"><img src="assets/images/mastercard.svg" alt="..."></li>
-            <li class="list-inline-item"><img src="assets/images/paypal.svg" alt="..."></li>
-            <li class="list-inline-item"><img src="assets/images/western-union.svg" alt="..."></li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
 </footer>
-<!--<button type="button" data-toggle="collapse" data-target="#style-switch" id="style-switch-button" class="btn btn-primary btn-sm d-none d-lg-block"><i class="fa fa-cog fa-2x"></i></button>
-<div id="style-switch" class="collapse">
-  <h4 class="text-uppercase">Select theme colour</h4>
-  <form class="mb-3">
-    <select name="colour" id="colour" class="form-control style-switch-select">
-      <option value="">select colour variant</option>
-      <option value="default">violet</option>
-      <option value="pink">pink</option>
-      <option value="green">green</option>
-      <option value="red">red</option>
-      <option value="sea">sea</option>
-      <option value="blue">blue</option>
-    </select>
-  </form>
-  <p><img src="assets/images/template-mac.png" alt="" class="img-fluid"></p>
-  <p class="text-muted text-small">Stylesheet switching is done via JavaScript and can cause a blink while page loads. This will not happen in your production code.</p>
-</div>-->

@@ -125,8 +125,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <h2 class="h1 text-uppercase no-margin">Your site Tagline Here</h2>
-            <p>At our outlet stores</p><a href="ProductCategory?searchitem=" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"></i></a>
+            <h2 class="h1 text-uppercase no-margin">There's nothing like our fresh goods</h2>
+            <p>Only here at Gerona Marketplace</p><a href="ProductCategory?searchitem=" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"></i></a>
           </div>
         </div>
       </div>
@@ -143,33 +143,18 @@
 
           <?php foreach($best_seller as $best){ ?>
           <div class="item">
-            <input type="hidden" class="product_id" value="<?php echo $rows->product_id; ?>">
-            <input type="hidden" class="product_qty" value="<?php echo $rows->qty; ?>">
-            <input type="hidden" class="product_name" value="<?php echo $rows->product_name; ?>">
-            <input type="hidden" class="product_description" value="<?php echo $rows->product_desc; ?>">
-            <input type="hidden" class="product_price" value="<?php echo $rows->price; ?>">
-            <input type="hidden" class="product_image" value="<?php echo $rows->image1; ?>">
             <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $rows->image1; ?>" alt="product" class="img-fluid">
+              <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $best->image1; ?>" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
-                    <?php if($rows->qty==0){  if($this->session->user_id){ ?>
-                    <a href="javascript:void()" class="outofstock"><i class="fa fa-shopping-cart"></i></a>
-                    <?php } else {?>
-                    <a href="javascript:void()" class="logintobuy"><i class="fa fa-shopping-cart"></i></a>
-                    <?php } ?>
-                    <?php } else {?>
-                    <a href="#" id="<?php echo $rows->product_id; ?>" class="addtocartrow"><i class="fa fa-shopping-cart"></i></a>
-                    <?php } ?>
-                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
-                    <a href="javascript:void()" class="quick-view viewtocart"><i class="fa fa-arrows-alt"></i></a>
+                    <a href="ProductDetails?getprodinfo=<?php echo $best->product_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
 
                   </div>
 
                 </div>
               </div>
               <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price></span></div>
             </div>
           </div>
           <?php } ?>

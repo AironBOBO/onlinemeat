@@ -60,6 +60,10 @@
                       <input id="street" type="text" name="address" value="<?php echo $this->session->user_address; ?>" readonly class="form-control">
                     </div>
                     <div class="form-group col-md-6">
+                      <label for="street" class="form-label">Barangay</label>
+                      <input id="street" type="text" name="address" value="<?php echo $this->session->brgy_name; ?>" readonly class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
                       <label for="phone-number" class="form-label">Phone Number</label>
                       <input id="phone-number" type="tel" name="phone-number" value="<?php echo $this->session->user_mobile; ?>" readonly class="form-control">
                     </div>
