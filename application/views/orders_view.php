@@ -38,7 +38,7 @@
     <section class="content">
         <div class="box">
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body table-responsive">
               <table id="tbl_orders" class="table table-bordered table-striped">
                 <thead class="tbl-header">
                     <tr>
@@ -51,6 +51,7 @@
                         <th >Unit</th>
                         <th >Status</th>
                         <th >Date Ordered</th>
+                        <th >Ordered By</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </thead>
@@ -67,6 +68,7 @@
                         <th >Unit</th>
                         <th >Status</th>
                         <th >Date Ordered</th>
+                        <th >Ordered By</th>
                         <th style="text-align:center;">Action</th>
                     </tr>
                 </tfoot>
@@ -110,7 +112,7 @@
                 {
                     extend: 'print',
                     exportOptions: {
-                columns: [ 0, 1, 2,3,4,5,6 ]
+                columns: [ 0, 1, 2,3,4,5,6,8,9 ]
             },
             title: "Orders list",
             customize: function ( win ) {
@@ -135,7 +137,8 @@
                 { targets:[6],data: "unit_name" },
                 { targets:[7],data: "order_status_name" },
                 { targets:[8],data: "order_date"},
-                { targets:[9],data: "order_date",
+                { targets:[9],data: "ordered_by"},
+                { targets:[10],data: "order_date",
                     render: function (data, type, full, meta){
                       var _shipped='<button class="btn btn-success btn-xs" name="shipped" style="margin:2px;" data-toggle="tooltip" data-placement="top">Shipped </button>';
                       var _processing='<button class="btn btn-primary btn-xs" name="processing" data-toggle="tooltip" data-placement="top">Processing </button>';

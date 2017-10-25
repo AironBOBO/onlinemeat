@@ -10,6 +10,8 @@ class MyAccount extends CORE_Controller {
         require 'application/third_party/phpmail/PHPMailerAutoload.php';
         $this->load->model('Users_model');
         $this->load->model('Category_model');
+        $this->load->model('Barangay_model');
+        
     }
 
 
@@ -120,14 +122,20 @@ class MyAccount extends CORE_Controller {
 
                 case 'update':
                     $m_users=$this->Users_model;
+                    $m_brgy=$this->Barangay_model;
                     $user_id = $this->input->post('user_id', TRUE);
+                    $brgy_id = $this->input->post('brgy_id', TRUE);
                     $m_users->user_fname = $this->input->post('user_fname', TRUE);
                     $m_users->user_lname = $this->input->post('user_lname', TRUE);
                     $m_users->user_address = $this->input->post('user_address', TRUE);
                     $m_users->user_mobile = $this->input->post('user_mobile', TRUE);
+                    $m_users->brgy_id = $this->input->post('brgy_id', TRUE);
+                    if( $this->input->post('user_image', TRUE) != "" ){
+                        $m_users->photo_path = $this->input->post('user_image', TRUE);
+                    }
                     $m_users->modify($user_id);
                     $full_name = $this->input->post('user_fname', TRUE) .' '. $this->input->post('user_lname', TRUE);
-
+                    $brgys=$m_brgy->get_list('brgy_id='.$brgy_id,'brgy.*');
                     $this->session->set_userdata(
                         array(
                             'user_fullname'=>$full_name,
@@ -135,9 +143,56 @@ class MyAccount extends CORE_Controller {
                             'user_lname'=>$this->input->post('user_lname', TRUE),
                             'user_address'=>$this->input->post('user_address', TRUE),
                             'user_mobile'=>$this->input->post('user_mobile', TRUE),
+                            'brgy_id'=>$this->input->post('brgy_id', TRUE),
+                            'brgy_name'=>$brgys[0]->brgy_name,
                         )
                     );
-                    redirect(base_url().'MyInfo');
+                    if( $this->input->post('user_image', TRUE) != "" ){
+                        
+                        $this->session->set_userdata(
+                            array(
+                                'user_photo'=>$this->input->post('user_image', TRUE),
+                            )
+                        );
+                    }
+
+                    
+                    redirect(base_url().'Profile');
+                break;
+
+                case 'upload':
+                    $allowed = array('png', 'jpg', 'jpeg','bmp');
+
+                    $data=array();
+                    $files=array();
+                    $directory='assets/img/users/';
+
+
+                    foreach($_FILES as $file){
+
+                        $server_file_name=uniqid('');
+                        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+                        $file_path=$directory.$server_file_name.'.'.$extension;
+                        $orig_file_name=$file['name'];
+
+                        if(!in_array(strtolower($extension), $allowed)){
+                            $response['title']='Invalid!';
+                            $response['stat']='error';
+                            $response['msg']='Image is invalid. Please select a valid photo!';
+                            die(json_encode($response));
+                        }
+
+                        if(move_uploaded_file($file['tmp_name'],$file_path)){
+                            $response['title']='Success!';
+                            $response['stat']='success';
+                            $response['msg']='Image successfully uploaded.';
+                            $response['path']=$file_path;
+                            echo json_encode($response);
+                        }
+
+                    }
+
+
                 break;
 
                 default:

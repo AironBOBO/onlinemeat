@@ -150,13 +150,12 @@ class Products extends CORE_Controller {
 
                 $response['title']='Success!';
                 $response['stat']='success';
-                $response['msg']='Carousel information successfully updated.';
+                $response['msg']='Product information successfully updated.';
                 $response['row_updated']=$m_products->get_list(
                     $product_id,
-                    'products.*,category.category,product_type.product_type',
+                    'products.*,category.category',
                     array(
                           array('category','category.category_id=products.category_id','left'),
-                          array('product_type','product_type.product_type_id=products.product_type_id','left'),
                       )
                     );
                 echo json_encode($response);

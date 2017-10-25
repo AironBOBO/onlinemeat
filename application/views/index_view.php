@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from hub.ondrejsvestka.cz/1-0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Oct 2017 14:01:20 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,17 +38,6 @@
         <header class="text-center">
           <h2 class="text-uppercase"><small>Food</small>Categories</h2>
         </header>
-        <!-- <div class="row text-left">
-          <?php foreach($category as $rows){ ?>
-          <div class="col-lg-4"><a href="ProductCategory?category=<?php echo $rows->category_id; ?>">
-              <div style="background-size:cover;background-image: url(<?php echo $rows->category_photo; ?>);" class="item d-flex align-items-end">
-                <div class="content">
-                  <h3 class="h5"><?php echo $rows->category; ?></h3>
-                </div>
-              </div></a>
-          </div>
-          <?php } ?>
-        </div> -->
         <div class="row text-left">
           <div class="col-lg-4"><a href="ProductCategory?product_type_id=1">
               <div style="background-size:cover;background-image: url('assets/img/meat.jpg');" class="item d-flex align-items-end">
@@ -97,16 +84,7 @@
               <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $rows->image1; ?>" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
-                    <?php if($rows->qty==0){  if($this->session->user_id){ ?>
-                    <a href="javascript:void()" class="outofstock"><i class="fa fa-shopping-cart"></i></a>
-                    <?php } else {?>
-                    <a href="javascript:void()" class="logintobuy"><i class="fa fa-shopping-cart"></i></a>
-                    <?php } ?>
-                    <?php } else {?>
-                    <a href="#" id="<?php echo $rows->product_id; ?>" class="addtocartrow"><i class="fa fa-shopping-cart"></i></a>
-                    <?php } ?>
-                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
-                    <a href="javascript:void()" class="quick-view viewtocart"><i class="fa fa-arrows-alt"></i></a>
+                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
 
                   </div>
 
@@ -147,7 +125,7 @@
               <div class="image d-flex align-items-center justify-content-center"><img src="<?php echo $best->image1; ?>" alt="product" class="img-fluid">
                 <div class="hover-overlay d-flex align-items-center justify-content-center">
                   <div class="CTA d-flex align-items-center justify-content-center">
-                    <a href="ProductDetails?getprodinfo=<?php echo $best->product_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
+                    <a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>" class="visit-product active"><i class="icon-search"></i>View</a>
 
                   </div>
 
@@ -223,6 +201,4 @@
 
     </script>
   </body>
-
-<!-- Mirrored from hub.ondrejsvestka.cz/1-0/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Oct 2017 14:03:32 GMT -->
 </html>

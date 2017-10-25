@@ -208,10 +208,10 @@
                 { targets:[6],data: "is_newarrival",
                     render: function (data, type, full, meta){
                         if(data==1){
-                            var _view='<button class="btn btn-xs" name="changestat" data-toggle="tooltip" data-placement="top" title="Unset as New Arrival"><i class="fa fa-eye"></i> </button>';
+                            var _view='<button class="btn btn-xs" name="changestat" data-toggle="tooltip" data-placement="top" title="Unset as New Product"><i class="fa fa-eye"></i> </button>';
                         }
                         else{
-                            var _view='<button class="btn btn-xs" name="changestat" data-toggle="tooltip" data-placement="top" title="Set as New Arrival"><i class="fa fa-eye-slash"></i> </button>';
+                            var _view='<button class="btn btn-xs" name="changestat" data-toggle="tooltip" data-placement="top" title="Set as New Product"><i class="fa fa-eye-slash"></i> </button>';
                         }
                             var _delete='<button class="btn btn-primary btn-xs" name="edit_info" style="margin:2px;" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil"></i> </button>';
                             var _edit='<button class="btn btn-danger btn-xs" name="remove_info" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>';

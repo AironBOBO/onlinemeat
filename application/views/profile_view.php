@@ -45,16 +45,19 @@
             <div class="col-md-4">
               <center>
                 <img src="<?php if($this->session->user_photo!=""){ echo $this->session->user_photo; } else { ?>assets/img/user.png<?php } ?>" width="200px" height="200px" class="img-responsive" style="border-radius:10px;">
-                <input type="file" name="user_image" class="form-control input-text">
+                <input type="file" name="user_imagetmp[]" class="form-control input-text">
+                
               </center>
             
             </div>
             <div class="col-md-8">
-              <form id="frm_profile">
+              <form id="frm_profile" method="POST" action="MyAccount/transaction/update">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="name" class="form-label">First Name</label>
+                    <input type="hidden" name="user_id" value="<?php echo $this->session->user_id; ?>" class="form-control" >
+                    <input type="hidden" name="user_image" id="user_image" value="">
                     <input type="text" name="user_fname" value="<?php echo $this->session->user_fname; ?>" class="form-control">
                   </div>
                 </div>
@@ -75,7 +78,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="name" class="form-label">Barangay</label>
-                    <select class="form-control" style="padding:0;" name="">
+                    <select class="form-control" style="padding:0;" name="brgy_id">
                       <option value="<?php echo $this->session->brgy_id; ?>">&nbsp&nbsp&nbsp&nbsp<?php echo $this->session->brgy_name; ?></option>
                       
                       <?php foreach($barangay as $brgy){ 
@@ -97,7 +100,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="name" class="form-label" style="color:white;">Save Changes</label>
-                    <button type="button" class="btn btn-template" style="width:100%;" id="update_profile">Update</button>
+                    <button type="submit" class="btn btn-template" style="width:100%;" id="update_profile">Update</button>
                   </div>
                   
                 </div>
@@ -113,8 +116,29 @@
     <!-- Javascript files-->
     <?php echo $_def_js_files; ?>
     <script>
-      $('#update_profile').click(function(){
-        alert();
+      $('input[name="user_imagetmp[]"]').change(function(event){
+          var _files=event.target.files;
+          var data=new FormData();
+          $.each(_files,function(key,value){
+              data.append(key,value);
+          });
+
+          // console.log(_files);
+
+          $.ajax({
+              url : 'MyAccount/transaction/upload',
+              type : "POST",
+              data : data,
+              cache : false,
+              dataType : 'json',
+              processData : false,
+              contentType : false,
+              success : function(response){
+                alert(response.path);
+                  $('#user_image').val(response.path);
+              }
+          });
+
       });
     </script>
   </body>

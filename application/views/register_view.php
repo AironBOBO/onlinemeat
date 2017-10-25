@@ -18,7 +18,7 @@
 		<div id="registermodal" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade overview">
 		  <div role="document" class="modal-dialog">
         <div class="modal-content">
-          <button type="button" class="close"><a href="Index"><span aria-hidden="true"><i class="icon-close"></i></span></a></button>
+          <a href="Index"><button type="button" class="close"><span aria-hidden="true"><i class="icon-close"></i></span></button></a>
         </div>
 		    <div class="modal-header">
 		     	<headerr style="font-size:13pt;font-weight:bold;">Register an account</headerr>

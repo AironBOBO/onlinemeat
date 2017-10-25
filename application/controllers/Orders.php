@@ -38,13 +38,14 @@ class Orders extends CORE_Controller {
                 $user=$this->session->user_id;
                 $response['data']=$m_order_items->get_list(
                     $filter,
-                    'order_items.*,orders.*,products.product_name,order_status.*,unit.*,discount.*',
+                    'order_items.*,orders.*,products.product_name,order_status.*,unit.*,discount.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_lname) as ordered_by',
                     array(
                           array('products','products.product_id=order_items.product_id','left'),
                           array('orders','orders.order_id=order_items.order_id','left'),
                           array('order_status','order_status.order_status_id=order_items.order_status_id','left'),
                           array('unit','unit.unit_id=order_items.unit_id','left'),
                           array('discount','discount.discount_id=unit.discount_id','left'),
+                          array('user_accounts','user_accounts.user_id=orders.user_id','left'),
                       )
                     );
                 echo json_encode($response);

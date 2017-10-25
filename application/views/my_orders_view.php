@@ -43,7 +43,7 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="cart" style="margin-top:15px;overflow-x:scroll;">
-						<div class="cart-holder" style="width:700px;">
+						<div class="cart-holder" style="width:700px;height:600px">
 							<div class="basket-header">
 								<div class="row">
 									<div class="col-4"><strong>Product</strong></div>
