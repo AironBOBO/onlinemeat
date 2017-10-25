@@ -41,8 +41,10 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-9">.
+					<?php if(count($myoders)!=0){ ?>
 					<div class="cart" style="margin-top:15px;overflow-x:scroll;">
+						
 						<div class="cart-holder" style="width:700px;height:600px">
 							<div class="basket-header">
 								<div class="row">
@@ -99,8 +101,10 @@
 								</form>
 							</div>
 						</div>
-						
 					</div>
+					<?php } else{ ?>
+							<center><h6 style="margin-top:50px;font-size:16pt;">Your Orders seems lonely, <a href="ProductCategory?searchitem=">Go shop for products Now!</a></h6></center>
+						<?php } ?>
 				</div>
 			</div>
 		</div>

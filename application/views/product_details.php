@@ -73,21 +73,15 @@
 					</div>
         </div>
       </div>
-
-      <div class="container">
-        <!-- Modal -->
-        <div class="modal fade" id="modalcart" role="dialog">
-          <div class="modal-dialog modal-md">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <p>Out of Stock</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
+      <!-- Modal -->
+      <div class="modal fade" id="modalcart" role="dialog">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-footer" style="background-color:#c0392b; !important;border-top:0">
+              <button style="color:white;" type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <center><h6>Out of Stock</h6></center>
             </div>
           </div>
         </div>

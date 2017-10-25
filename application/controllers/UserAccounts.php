@@ -30,7 +30,7 @@ class UserAccounts extends CORE_Controller {
 
             case 'list':
                 $m_users = $this->Users_model;
-                $response['data']=$m_users->get_list('user_accounts.is_deleted=0','user_accounts.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_mname," ",user_accounts.user_lname) as fullname');
+                $response['data']=$m_users->get_list('user_accounts.is_deleted=0 AND user_accounts.user_id!=1','user_accounts.*,CONCAT(user_accounts.user_fname," ",user_accounts.user_mname," ",user_accounts.user_lname) as fullname');
                 echo json_encode($response);
             break;
 

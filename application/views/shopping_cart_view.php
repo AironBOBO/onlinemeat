@@ -31,6 +31,7 @@
       </div>
     </section>
     <!-- Shopping Cart Section-->
+    <?php if(count($products_cart)!=0){ ?>
     <section class="shopping-cart">
       <div class="container">
         <div class="basket">
@@ -87,31 +88,6 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
-            <!-- <div class="block">
-              <div class="block-header">
-                <h6 class="text-uppercase">Coupon Code</h6>
-              </div>
-              <div class="block-body">
-                <p>If you have a coupon code, please enter it in the box below</p>
-                <form action="#">
-                  <div class="form-group d-flex">
-                    <input type="text" name="coupon">
-                    <button type="submit">Apply Comment</button>
-                  </div>
-                </form>
-              </div>
-            </div> -->
-            <!-- <div class="block">
-              <div class="block-header">
-                <h6 class="text-uppercase">Instructions for seller</h6>
-              </div>
-              <div class="block-body">
-                <p>If you have some information for the seller you can leave them in the box below</p>
-                <form action="#">
-                  <textarea name="instructions"></textarea>
-                </form>
-              </div>
-            </div> -->
           </div>
           <div class="col-lg-6">
             <div class="block">
@@ -131,6 +107,9 @@
         </div>
       </div>
     </section>
+    <?php } else{ ?>
+      <center><h6 style="margin-top:80px;margin-bottom:80px;font-size:16pt;">Awwwww, Your Cart seems lonely, Do you want it to be happy?, <a href="ProductCategory?searchitem=">Go shop for products Now!</a></h6></center>
+    <?php } ?>
 
     <?php echo $_footer; ?>
     <!-- Javascript files-->

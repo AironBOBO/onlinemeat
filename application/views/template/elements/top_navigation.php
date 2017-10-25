@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" style="border-top:2px solid #3498db;">
 	<!-- Tob Bar-->
 	<nav class="navbar navbar-expand-lg">
 		<div class="search-area">
