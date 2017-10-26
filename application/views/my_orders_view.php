@@ -10,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <?php echo $_def_css_files; ?>
+    <style>
+    	.tbfont{
+    		font-size:10pt;
+    	}
+    </style>
   </head>
   <body>
     <!-- navbar-->
@@ -45,15 +50,16 @@
 					<?php if(count($myoders)!=0){ ?>
 					<div class="cart" style="margin-top:15px;overflow-x:scroll;">
 						
-						<div class="cart-holder" style="width:700px;height:600px">
+						<div class="cart-holder" style="width:800px;height:600px">
 							<div class="basket-header">
 								<div class="row">
-									<div class="col-4"><strong>Product</strong></div>
-									<div class="col-2"><strong>Price</strong></div>
-									<div class="col-1"><strong>Qty</strong></div>
-									<div class="col-2"><strong>Discount</strong></div>
-									<div class="col-2"><strong>Unit Price</strong></div>
-									<div class="col-1"><strong>Order Status</strong></div>
+									<div class="col-3 tbfont"><strong>Product</strong></div>
+									<div class="col-2 tbfont"><strong>Price</strong></div>
+									<div class="col-1 tbfont"><strong>Qty</strong></div>
+									<div class="col-1 tbfont"><strong>Discount</strong></div>
+									<div class="col-2 tbfont"><strong><center>Unit Price</center></strong></div>
+									<div class="col-2 tbfont"><strong>Order Status</strong></div>
+									<div class="col-1 tbfont"><strong><center>Action</center></strong></div>
 								</div>
 							</div>
 							<div class="basket-body">
@@ -77,7 +83,7 @@
 									}
 								?>
 								<div class="item row d-flex align-items-center" style="margin-top:10px;">
-									<div class="col-4">
+									<div class="col-3">
 										<div class="d-flex align-items-center"><img style="height:50px;width:60px;" src="<?php echo $row->image1; ?>" alt="..." class="img-fluid">
 											<div class="title"><a href="ProductDetails?getprodinfo=<?php echo $row->product_id; ?>&category_id=<?php echo $row->category_id; ?>">
 													<h6 style="font-size:10pt;margin-left:5px;"><?php echo $row->product_name; ?></h6><span class="text-muted">Weight: <?php echo $row->unit_name; ?></span></a></div>
@@ -85,10 +91,24 @@
 									</div>
 									<div class="col-2"><span>₱ <?php echo number_format($row->price,2); ?></span></div>
 									<div class="col-1"><span><?php echo $row->order_qty; ?></span></div>
-									<div class="col-2"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->order_qty)*$row->disc_decimal),2); ?></span></div>
+									<div class="col-1"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->order_qty)*$row->disc_decimal),2); ?></span></div>
 
-									<div class="col-2"><span>₱&nbsp<?php echo number_format( ($row->price*$row->order_qty)-$discount,2); ?></span></div>
-									<div class="col-1"><span><?php echo $row->order_status_name; ?></span></div>
+									<div class="col-2"><center><span>₱&nbsp<?php echo number_format( ($row->price*$row->order_qty)-$discount,2); ?></span></center></div>
+									<div class="col-2"><span><?php echo $row->order_status_name; ?></span></div>
+									<div class="col-1"><center>
+															<?php if($row->order_status_name!="Cancelled"){ ?>
+															<form action="MyOrders/transaction/delete" method="POST">
+																<input type="hidden" value="<?php echo $row->order_items_id; ?>" name="order_items_id">
+																<input type="hidden" value="<?php echo $row->order_id; ?>" name="order_id">
+																<input type="hidden" value="<?php echo $row->order_qty; ?>" name="order_qty">
+																<input type="hidden" value="<?php echo $row->product_id; ?>" name="product_id">
+																<button type="submit" title="Cancel Order" class="btn btn-danger cancel_order">&times</button>
+															</form>
+															<?php } else{ ?>
+																<button type="button" title="Cancel Order" class="btn btn-danger cancel_order" disabled>&times</button>
+															<?php } ?>
+														</center>
+									</div>
 								</div>
 
 								<?php

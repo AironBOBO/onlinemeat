@@ -11,8 +11,8 @@ class MyOrders extends CORE_Controller {
         $this->load->model('Category_model');
         $this->load->model('Cart_model');
         $this->load->model('Order_model');
-        // $this->load->model('Users_model');
-        // $this->load->model('Wall_post_model');
+        $this->load->model('Order_items_model');
+        
         $this->validate_session();
 
     }
@@ -66,18 +66,28 @@ class MyOrders extends CORE_Controller {
 
     function transaction($txn = null) {
         switch ($txn) {
-            case 'create':
-                $m_wallpost=$this->Wall_post_model;
-                $m_wallpost->post_content=$this->input->post('post_content',TRUE);
-                $m_wallpost->user_id = $this->session->user_id;
-                $m_wallpost->date_created = date("Y-m-d H:i:s");
-                $m_wallpost->save();
+            case 'delete':
+                $m_order_items=$this->Order_items_model;
+                $m_order=$this->Order_model;
+                $m_products=$this->Products_model;
+                $order_id=$this->input->post('order_id',TRUE);
+                $order_items_id=$this->input->post('order_items_id',TRUE);
+                $order_qty=$this->input->post('order_qty',TRUE);
+                $product_id=$this->input->post('product_id',TRUE);
 
-                $response['title']='Success!';
-                $response['stat']='success';
-                $response['msg']='Post Successfull.';
-                echo json_encode($response);
-
+                $m_order_items->order_status_id=3;
+                $m_order_items->modify($order_items_id);
+                $m_products->set('qty','qty+'.$order_qty);
+                $m_products->modify($product_id);
+                // $m_order_items->delete_via_id($order_items_id);
+                // $itemslist = $m_order_items->get_list('order_id='.$order_id,'order_items.order_items_id');
+                
+                // if(count($itemslist)!=0){
+                // }
+                // else{
+                //   $m_order->modify($order_id);
+                // }
+                redirect(base_url().'MyOrders');
             break;
         }
     }
