@@ -72,55 +72,44 @@ class Register extends CORE_Controller {
                           $m_users->date_created = date('Y-m-d H:i:s');
                           $m_users->save();
 
-                          // $user_id = $m_users->last_insert_id();
-                          // $base = base_url();
-                          // $user_name = $this->input->post('user_name', TRUE);
-                          // $user_fname = $this->input->post('user_fname', TRUE);
-                          // $user_lname = $this->input->post('user_lname', TRUE);
-                          // $mail = new PHPMailer;
-                          // //$mail->SMTPDebug = 3;                               // Enable verbose debug output
-                          // $mail->isSMTP();                                      // Set mailer to use SMTP
-                          // $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-                          // $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                          // $mail->Username = 'tsuccsmeat09@gmail.com';                 // SMTP username
-                          // $mail->Password = 'tsuccsmeat';                           // SMTP password
-                          // $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                          // $mail->Port = 587;                                    // TCP port to connect to
-                          //
-                          // $mail->setFrom($user_name, 'Furnies OL-Shoppe');
-                          // $mail->addAddress($user_name, $user_fname.' '.$user_fname);     // Add a recipient
-                          // // $mail->addAddress('ellen@example.com');               // Name is optional
-                          // $mail->addReplyTo('jakeserrano201@gmail.com', 'Furnies OL-Shoppe');
-                          // $mail->addCC('jakeserrano201@gmail.com');
-                          // $mail->addBCC('jakeserrano201@gmail.com');
-                          //
-                          // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                          // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-                          // $mail->isHTML(true);                                  // Set email format to HTML
-                          //
-                          // $mail->Subject = 'Hello'.$user_fname.' '.$user_fname;
-                          //
-                          // $mail->Body    = '<html>
-                          //  <head>
-                          //   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                          //   <title>Furnies OL-Shoppe</title>
-                          //   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                          //   <body>
-                          //       <center><h4>Welcome to Gerona Marketplace</h4>
-                          //       <p>Thank you for signing up, Please verify your account by clicking the button below.</p>
-                          //       <div id="button" style="width:3000px;height:50px;border-radius:20px;background-color:#2980b9;color:#ecf0f1;font-size:18pt;"><a href="'.$base.'/MyAccount/transaction/verifyemail?code='.$user_id.'" target="_blank">Click Here Verify Account</a></div>
-                          //       <center>
-                          //   </body>
-                          // </head>
-                          // </html>';
-                          // // $mail->Body    = "<div id='button'>Thank you for registering to Gerona Marketplace, Please wait for the admin to approve your account, Thank you. </div>";
-                          // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-                          //
-                          // if(!$mail->send()) {
-                          // $response['email_stat']="failed";
-                          // } else {
-                          // $response['email_stat']="success";
-                          // }
+                          $user_id = $m_users->last_insert_id();
+                          $base = base_url();
+                          $user_name = $this->input->post('user_name', TRUE);
+                          $user_fname = $this->input->post('user_fname', TRUE);
+                          $user_lname = $this->input->post('user_lname', TRUE);
+                          $mail = new PHPMailer;
+                          //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+                          $mail->isSMTP();                                      // Set mailer to use SMTP
+                          $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                          $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                          $mail->Username = 'tsuccsmeat09@gmail.com';                 // SMTP username
+                          $mail->Password = 'tsuccsmeat';                           // SMTP password
+                          $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                          $mail->Port = 587;                                    // TCP port to connect to
+                          
+                          $mail->setFrom($user_name, 'Gerona Marketplace');
+                          $mail->addAddress($user_name, $user_fname.' '.$user_fname);     // Add a recipient
+                          // $mail->addAddress('ellen@example.com');               // Name is optional
+                          $mail->addReplyTo('tsuccsmeat09@gmail.com', 'Gerona Marketplace');
+                          $mail->addCC('tsuccsmeat09@gmail.com');
+                          $mail->addBCC('tsuccsmeat09@gmail.com');
+                          
+                          $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+                          $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                          $mail->isHTML(true);                                  // Set email format to HTML
+                          
+                          $mail->Subject = 'Hello '.$user_fname.' '.$user_fname;
+                          
+                          $regcontent = $this->load->view('template/elements/regcontent_view',null,TRUE);
+                          $mail->Body = $regcontent;
+
+                          $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                          
+                          if(!$mail->send()) {
+                          $response['email_stat']="failed";
+                          } else {
+                          $response['email_stat']="success";
+                          }
 
                           $response['stat']='success';
                           $response['msg'] = 'Account successfully created, please wait for the admin to approve your account.';
