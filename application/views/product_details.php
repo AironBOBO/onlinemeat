@@ -50,6 +50,9 @@
 
             </div>
             <p><?php echo $product_info[0]->product_desc; ?></p>
+            <hr>
+            <h5><?php echo $product_info[0]->qty; ?> Stock Left</h5>
+            <hr>
             <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
               <div class="quantity d-flex align-items-center">
                 <div class="dec-btn">-</div>
@@ -98,6 +101,7 @@
         <div class="tab-content">
           <div id="description" role="tabpanel" class="tab-pane active">
 						<p><?php echo $product_info[0]->product_desc; ?></p>
+
           </div>
           <!-- <div id="additional-information" role="tabpanel" class="tab-pane">
             <ul class="list-unstyled additional-information">
