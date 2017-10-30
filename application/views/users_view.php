@@ -58,6 +58,8 @@
                     </tr>
                 </tfoot>
               </table>
+              <hr style="margin:10px">
+              <button class="btn btn-primary" id="changepass">Change Admin Password</button>
             </div>
             <!-- /.box-body -->
           </div>
@@ -70,9 +72,53 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
-    <strong>Copyright &copy; 2017 <a href="#">Furnies OL-Shoppe</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 <a href="#">Gerona Marketplace</a>.</strong> All rights
     reserved.
   </footer>
+
+  <div id="modal_changepassword" class="modal fade"  tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-md">
+          <div class="modal-content">
+              <div class="modal-header bgm-indigo">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" class="xbutton">×</span></button>
+                  <h4 class="modal-title">Change Password : <transaction class="transaction"></transaction></h4>
+              </div>
+              <div class="modal-body">
+                  <form id="frm_changepass">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="form-group">
+                              <label style="margin-top:8px;" for="inputEmail1">Current Password :</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-tags fa-size" aria-hidden="true"></i></span>
+                                        <input type="text" name="current_password" class="form-control" placeholder="Category Name" data-error-msg="New Password is required." required>
+                                </div>
+                          </div>
+                          <div class="form-group">
+                              <label style="margin-top:8px;" for="inputEmail1">New Password :</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-tags fa-size" aria-hidden="true"></i></span>
+                                        <input type="text" name="new_pass" class="form-control" placeholder="Category Name" data-error-msg="New Password is required." required>
+                                </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              </form>
+              <div class="modal-footer" >
+                  <button id="btn_change" style="margin-top:5px;" type="button" class="btn btn-primary">Save
+                  </button>
+                  <button type="button" style="margin-top:5px;" class="btn bgm-red" data-dismiss="modal">Close
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
 
 <?php echo $_right_navigation ?>
   <!-- /.control-sidebar -->
@@ -135,6 +181,20 @@
 
     });
 
+    $('#changepass').click(function(){
+      $('#modal_changepassword').modal('show');
+    });
+
+    $('#btn_change').click(function(){
+      ChangePassword().done(function(response){
+                        showNotification(response);
+                        if(response.stat=="success"){
+                          $('#modal_changepassword').modal('hide');
+                        }
+                    }).always(function(){
+                        $.unblockUI();
+                    });
+    });
 
     var removeUser=function(){
             return $.ajax({
@@ -152,6 +212,17 @@
             "type":"POST",
             "url":"UserAccounts/transaction/changestat",
             "data":{user_id : _selectedID,is_active : _selectedStat},
+            "beforeSend": showSpinningProgress($('#'))
+        });
+    };
+
+    var ChangePassword=function(){
+        var _data=$('#frm_changepass').serializeArray();
+        return $.ajax({
+            "dataType":"json",
+            "type":"POST",
+            "url":"UserAccounts/transaction/changepassword",
+            "data":_data,
             "beforeSend": showSpinningProgress($('#'))
         });
     };

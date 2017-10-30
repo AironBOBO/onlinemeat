@@ -113,6 +113,28 @@ class UserAccounts extends CORE_Controller {
 
             break;
 
+            case 'changepassword':
+                $m_users=$this->Users_model;
+                $user_id = $this->session->user_id;
+                $user = $m_users->get_list('user_accounts.user_id='.$user_id);
+                if( $user[0]->user_pword==sha1($this->input->post('current_password',TRUE)) ){
+                    $m_users->user_pword=sha1($this->input->post('new_pass',TRUE));
+                    $m_users->modify($user_id);
+                    $response['title']='success!';
+                    $response['stat']='success';
+                    $response['msg']='Admin Account successfully updated.';
+                }
+                else{
+                    $response['title']='error!';
+                    $response['stat']='error';
+                    $response['msg']='Current Passowrd Doesnt seem right., please try again';
+                }
+                
+
+                echo json_encode($response);
+
+            break;
+
             case 'upload':
                 $allowed = array('png', 'jpg', 'jpeg','bmp');
 
