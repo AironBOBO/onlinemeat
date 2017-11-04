@@ -102,7 +102,7 @@ class Thankyou extends CORE_Controller {
 
         $this->load->view('thankyou_view',$data);
 
-        echo json_encode($response);
+        // echo json_encode($response);
     }
 
     function transaction($txn = null) {
