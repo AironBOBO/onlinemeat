@@ -11,7 +11,7 @@ class MyAccount extends CORE_Controller {
         $this->load->model('Users_model');
         $this->load->model('Category_model');
         $this->load->model('Barangay_model');
-        
+
     }
 
 
@@ -148,7 +148,7 @@ class MyAccount extends CORE_Controller {
                         )
                     );
                     if( $this->input->post('user_image', TRUE) != "" ){
-                        
+
                         $this->session->set_userdata(
                             array(
                                 'user_photo'=>$this->input->post('user_image', TRUE),
@@ -156,7 +156,7 @@ class MyAccount extends CORE_Controller {
                         );
                     }
 
-                    
+
                     redirect(base_url().'Profile');
                 break;
 

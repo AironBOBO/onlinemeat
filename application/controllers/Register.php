@@ -86,25 +86,25 @@ class Register extends CORE_Controller {
                           $mail->Password = 'tsuccsmeat';                           // SMTP password
                           $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
                           $mail->Port = 587;                                    // TCP port to connect to
-                          
+
                           $mail->setFrom($user_name, 'Gerona Marketplace');
                           $mail->addAddress($user_name, $user_fname.' '.$user_fname);     // Add a recipient
                           // $mail->addAddress('ellen@example.com');               // Name is optional
                           $mail->addReplyTo('tsuccsmeat09@gmail.com', 'Gerona Marketplace');
                           $mail->addCC('tsuccsmeat09@gmail.com');
                           $mail->addBCC('tsuccsmeat09@gmail.com');
-                          
+
                           $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
                           $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                           $mail->isHTML(true);                                  // Set email format to HTML
-                          
+
                           $mail->Subject = 'Hello '.$user_fname.' '.$user_fname;
-                          
+
                           $regcontent = $this->load->view('template/elements/regcontent_view',null,TRUE);
                           $mail->Body = $regcontent;
 
                           $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-                          
+
                           if(!$mail->send()) {
                           $response['email_stat']="failed";
                           } else {
