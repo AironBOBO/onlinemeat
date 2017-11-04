@@ -52,7 +52,7 @@
               </div>
               <h3>Contact Number</h3>
               <p>Charges in your cellular network may apply during call, we advise you to use the electronic form of communication.</p>
-              <p><strong>09165210235</strong></p>
+              <p><strong>09303332343</strong></p>
             </div>
             <div class="col-md-4">
               <div class="contact-icon">

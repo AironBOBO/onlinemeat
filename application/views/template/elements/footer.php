@@ -67,7 +67,7 @@
           <div class="item d-flex align-items-center">
             <div class="icon"><i class="icon-headphones"></i></div>
             <div class="text">
-              <h6 class="no-margin text-uppercase">09165210235</h6><span>Available Support</span>
+              <h6 class="no-margin text-uppercase">09303332343</h6><span>Available Support</span>
             </div>
           </div>
         </div>
