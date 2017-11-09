@@ -132,7 +132,7 @@
         return $.ajax({
             "dataType":"json",
             "type":"POST",
-            "url":"Cart/transaction/delete",
+            "url":"Cart/transaction/deletereserve",
             "data":{product_id : selected_id }
         });
 

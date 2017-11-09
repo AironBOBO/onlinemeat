@@ -127,11 +127,18 @@ class Cart extends CORE_Controller {
 
             break;
 
-            case 'delete':
+            case 'deletereserve':
                 $product_id=$this->input->post('product_id',TRUE);
                 $this->db->where('product_id', $product_id);
                 $this->db->where('is_reserve', 1);
                 $this->db->delete('cart');
+
+            break;
+
+            case 'delete':
+                $m_cart=$this->Cart_model;
+                $cart_id=$this->input->post('cart_id',TRUE);
+                $m_cart->delete_via_id($cart_id);
 
             break;
 
