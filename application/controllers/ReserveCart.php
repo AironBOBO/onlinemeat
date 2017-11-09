@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Checkout extends CORE_Controller {
+class ReserveCart extends CORE_Controller {
 
     function __construct()
     {
@@ -11,7 +11,8 @@ class Checkout extends CORE_Controller {
         $this->load->model('Category_model');
         $this->load->model('Cart_model');
         // $this->load->model('Users_model');
-        $this->validate_session();
+        // $this->load->model('Wall_post_model');
+        // $this->validate_session();
 
     }
 
@@ -24,6 +25,7 @@ class Checkout extends CORE_Controller {
         $m_cart=$this->Cart_model;
         $data['_title']="Gerona Marketplace";
         //to view categories in navigation
+        $cat['isshoppingcart']=1;
 
         $cat['category']=$m_category->get_list(
           'category.is_deleted=0 AND category.is_active=1',
@@ -32,7 +34,7 @@ class Checkout extends CORE_Controller {
 
         $cat['products_cart']=$m_cart->get_list(
           'products.is_deleted=0 AND cart.is_reserve=0 AND cart.user_id='.$user_id,
-          'products.product_id,products.product_name,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
+          'products.product_id,products.product_name,products.category_id,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
                     array(
                           array('products','products.product_id=cart.product_id','left'),
                           array('unit','unit.unit_id=cart.unit_id','left'),
@@ -40,13 +42,23 @@ class Checkout extends CORE_Controller {
                       )
                     );
 
+        $cat['products_cart1']=$m_cart->get_list(
+          'products.is_deleted=0 AND cart.is_reserve=1 AND cart.user_id='.$user_id,
+          'products.product_id,products.product_name,products.category_id,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
+                    array(
+                          array('products','products.product_id=cart.product_id','left'),
+                          array('unit','unit.unit_id=cart.unit_id','left'),
+                          array('discount','discount.discount_id=unit.discount_id','left'),
+                      ),
+                    null,
+                    'cart.product_id'
+                    );
+
         $data['_footer']=$this->load->view('template/elements/footer','',TRUE);
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
         $data['_top_navigation']=$this->load->view('template/elements/top_navigation',$cat,TRUE);
-        $this->load->view('checkout_view',$data);
-        $data['title'] = 'Gerona Marketplace';
+        $this->load->view('reserve_cart_view',$data);
+        $data['title'] = 'Reserved Products';
     }
-
-
 }

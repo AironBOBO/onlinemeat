@@ -40,6 +40,7 @@
 							<ul aria-labelledby="userdetails" class="dropdown-menu">
 								<li class="dropdown-item"><a href="<?php if($this->session->user_group_id==1){ ?>Products<?php } else { ?>Profile<?php } ?>"><?php if($this->session->user_group_id==1){ ?>Admin Panel<?php } else { ?>Profile<?php } ?></a></li>
 								<?php echo ($this->session->user_group_id==2) ? '<li class="dropdown-item"><a href="MyOrders">Orders</a></li>' : '';?>
+								<li class="dropdown-item"><a href="ReserveCart">Reservations</a></li>
 								<li class="dropdown-divider">     </li>
 								<li class="dropdown-item"><a href="MyAccount/Transaction/logout">Logout</a></li>
 							</ul>

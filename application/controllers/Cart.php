@@ -37,7 +37,7 @@ class Cart extends CORE_Controller {
                 $product_id = $this->input->post('product_id', TRUE);
                 $unit_id = $this->input->post('unit_id', TRUE);
                 $temp = $m_cart->get_list(
-                  'cart.user_id='.$user_id.' AND product_id='.$product_id.' AND unit_id='.$unit_id,
+                  'cart.user_id='.$user_id.'  AND cart.is_reserve=0 AND product_id='.$product_id.' AND unit_id='.$unit_id,
                   'cart.cart_id,cart.quantity'
                 );
                 if(count($temp)==0){
@@ -78,10 +78,60 @@ class Cart extends CORE_Controller {
 
             break;
 
+            case 'createreserve':
+                $m_cart = $this->Cart_model;
+                $user_id=$this->session->user_id;
+                $product_id = $this->input->post('product_id', TRUE);
+                $unit_id = $this->input->post('unit_id', TRUE);
+                $temp = $m_cart->get_list(
+                  'cart.user_id='.$user_id.' AND cart.is_reserve=1 AND product_id='.$product_id.' AND unit_id='.$unit_id,
+                  'cart.cart_id,cart.quantity'
+                );
+                if(count($temp)==0){
+                  $m_cart->user_id = $this->session->user_id;
+                  $m_cart->product_id = $this->input->post('product_id', TRUE);
+                  $m_cart->unit_id = $this->input->post('unit_id', TRUE);
+                  $m_cart->is_reserve = 1;
+                  if($this->input->post('quantity', TRUE)!=null){
+                    $m_cart->quantity = $this->input->post('quantity', TRUE);
+                  }
+                  else{
+                    $m_cart->quantity = 1;
+                  }
+
+                  $m_cart->save();
+                  $cart_id = $m_cart->last_insert_id();
+                }
+                else{
+                  $cart_id = $temp[0]->cart_id;
+                  $qtytemp = $temp[0]->quantity;
+                  $m_cart->user_id = $this->session->user_id;
+                  $m_cart->product_id = $this->input->post('product_id', TRUE);
+                  $m_cart->unit_id = $this->input->post('unit_id', TRUE);
+                  $m_cart->is_reserve = 1;
+                  if($this->input->post('quantity', TRUE)!=null){
+                    $m_cart->quantity = $qtytemp + $this->input->post('quantity', TRUE);
+                  }
+                  else{
+                    $m_cart->quantity = $qtytemp+1;
+                  }
+                  $m_cart->modify($cart_id);
+                }
+
+
+
+
+                $response['stat'] = 'success';
+                $response['row_added'] = $m_cart->get_list($cart_id);
+                echo json_encode($response);
+
+            break;
+
             case 'delete':
-                $m_cart=$this->Cart_model;
-                $cart_id=$this->input->post('cart_id',TRUE);
-                $m_cart->delete_via_id($cart_id);
+                $product_id=$this->input->post('product_id',TRUE);
+                $this->db->where('product_id', $product_id);
+                $this->db->where('is_reserve', 1);
+                $this->db->delete('cart');
 
             break;
 

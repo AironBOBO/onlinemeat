@@ -33,8 +33,8 @@ class ShoppingCart extends CORE_Controller {
                     );
 
         $cat['products_cart']=$m_cart->get_list(
-          'products.is_deleted=0 AND cart.user_id='.$user_id,
-          'products.product_id,products.product_name,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
+          'products.is_deleted=0 AND cart.is_reserve=0 AND cart.user_id='.$user_id,
+          'products.product_id,products.product_name,products.category_id,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
                     array(
                           array('products','products.product_id=cart.product_id','left'),
                           array('unit','unit.unit_id=cart.unit_id','left'),

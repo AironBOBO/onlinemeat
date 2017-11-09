@@ -83,7 +83,7 @@ class ProductCategory extends CORE_Controller {
                     );
 
         $cat['products_cart']=$m_cart->get_list(
-          'products.is_deleted=0 AND cart.user_id='.$user_id,
+          'products.is_deleted=0 AND cart.is_reserve=0 AND cart.user_id='.$user_id,
           'products.product_id,products.product_name,products.price,products.image1,cart.quantity,cart.cart_id',
                     array(
                           array('products','products.product_id=cart.product_id','left'),

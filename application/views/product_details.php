@@ -67,7 +67,9 @@
             </div>
             <ul class="CTAs list-inline">
 							<?php if($this->session->user_id){ ?>
-              <li class="list-inline-item"> <button type="button" class="btn btn-template wide addtocart" ><i class="icon-cart"></i>Add to Cart </button></li></ul>
+              <li class="list-inline-item"> <button type="button" class="btn btn-template wide addtocart" ><i class="icon-cart"></i>Add to Cart </button></li>
+              <li class="list-inline-item"> <button type="button" class="btn btn-template wide addtoreserve" ><i class="icon-cart"></i>Reserve</button></li>
+            </ul>
 							<input type="hidden" class="d_productid" value="<?php echo $product_info[0]->product_id; ?>">
 							<input type="hidden" class="d_qty" value="<?php echo $product_info[0]->qty; ?>">
 						<?php } else { ?>
@@ -179,11 +181,40 @@
 
       });
 
+      $('.addtoreserve').click(function(){
+        _product_id = $('.d_productid').val();
+        _product_qty = $('.d_qty').val();
+        _quantitybuy = $('.quantity-no').val();
+        _unit_id = $('.d_unit_id').val();
+        if(_product_qty<_quantitybuy){
+          $('#modalcart').modal('show');
+          return;
+        }
+        else{
+          AddToReserve(_product_id).done(function(response){
+            window.location.href = "ReserveCart";
+        });
+       }
+
+      });
+
+      
+
       var AddToCartFunc=function(_product_id){
         return $.ajax({
             "dataType":"json",
             "type":"POST",
             "url":"Cart/transaction/create",
+            "data":{product_id : _product_id,unit_id : _unit_id }
+        });
+
+      };
+
+      var AddToReserve=function(_product_id){
+        return $.ajax({
+            "dataType":"json",
+            "type":"POST",
+            "url":"Cart/transaction/createreserve",
             "data":{product_id : _product_id,unit_id : _unit_id }
         });
 
