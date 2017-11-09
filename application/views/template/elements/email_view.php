@@ -58,7 +58,7 @@
     <?php
     $ordertotal += $row->order_price;
   }
-  $shipping_free=100;
+  $shipping_free=50;
   ?>
   <tr style="border-top:1px solid black;">
     <td><b>Shipping Fee</b></td>
