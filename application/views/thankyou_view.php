@@ -71,9 +71,8 @@
 
 						<tr style="border-bottom:1px solid black;">
 							<th>Item</th>
-							<th>Unit</th>
+							<th>Unit(Weight)</th>
 							<th>Price</th>
-							<th>Quantity</th>
 							<th>Discount</th>
 							<th>Total</th>
 						</tr>
@@ -85,15 +84,14 @@
 							<td ><a href="#"><?php echo $row->product_name; ?></a></td>
 							<td ><?php echo $row->unit_name; ?></td>
 	    				<td>₱&nbsp<price class="price"><?php echo $row->price; ?></price></td>
-	    				<td ><?php echo $row->order_qty; ?></td>
-							<td ><?php echo $row->discount_desc; ?></td>
-	    				<td >₱&nbsp<totalprice class="totalprice"><?php echo $row->order_price; ?></totalprice></td>
+							<td ><?php echo $discount = number_format( (($row->price*$row->unit_id)*$row->disc_decimal),2); ?></td>
+	    				<td >₱&nbsp<totalprice class="totalprice"><?php echo $row->order_price-$discount; ?></totalprice></td>
 	    			</tr>
 
 						<!-- Apply Coupon Code / Buttons -->
 
 	          <?php
-	          $ordertotal += $row->order_price;
+	          $ordertotal += $row->order_price-$discount;
 	        }
 					$shipping_free=50;
 					?>

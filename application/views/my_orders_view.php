@@ -55,7 +55,7 @@
 								<div class="row">
 									<div class="col-3 tbfont"><strong>Product</strong></div>
 									<div class="col-2 tbfont"><strong>Price</strong></div>
-									<div class="col-1 tbfont"><strong>Qty</strong></div>
+									<div class="col-1 tbfont"><strong>Shipping</strong></div>
 									<div class="col-1 tbfont"><strong>Discount</strong></div>
 									<div class="col-2 tbfont"><strong><center>Unit Price</center></strong></div>
 									<div class="col-2 tbfont"><strong>Order Status</strong></div>
@@ -90,10 +90,10 @@
 										</div>
 									</div>
 									<div class="col-2"><span>₱ <?php echo number_format($row->price,2); ?></span></div>
-									<div class="col-1"><span><?php echo $row->order_qty; ?></span></div>
-									<div class="col-1"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->order_qty)*$row->disc_decimal),2); ?></span></div>
+									<div class="col-1"><span>₱&nbsp<?php echo $row->shipping_fee; ?></span></div>
+									<div class="col-1"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->unit_id)*$row->disc_decimal),2); ?></span></div>
 
-									<div class="col-2"><center><span>₱&nbsp<?php echo number_format( ($row->price*$row->order_qty)-$discount,2); ?></span></center></div>
+									<div class="col-2"><center><span>₱&nbsp<?php echo number_format( ($row->price*$row->unit_id)-$discount,2); ?></span></center></div>
 									<div class="col-2"><span><?php echo $row->order_status_name; ?></span></div>
 									<div class="col-1"><center>
 															<?php if($row->order_status_name!="Cancelled"){ ?>
@@ -112,7 +112,7 @@
 								</div>
 
 								<?php
-									$ordertotal+=($row->price*$row->order_qty)-$discount; ?>
+									$ordertotal+=($row->price*$row->unit_id)-$discount+$row->shipping_fee; ?>
 									<div class="total row"><span class="col-1 text-primary">Total</span><span class="text-primary">₱ <?php echo number_format($ordertotal,2); ?></span></div>
 									
 								<?php

@@ -107,7 +107,7 @@
                       <div class="row">
                         <div class="col-4">Product</div>
                         <div class="col-2">Price</div>
-                        <div class="col-2">Quantity</div>
+                        <div class="col-2">Weight</div>
                         <div class="col-2">Discount</div>
                         <div class="col-2">Unit Price</div>
                       </div>
@@ -119,7 +119,7 @@
               				?>
                       <input type="hidden" name="product_id[]" value="<?php echo $row->product_id; ?>" readonly/>
             					<input type="hidden" name="order_qty[]" value="<?php echo $row->quantity; ?>"  readonly/>
-            					<input type="hidden" name="order_price[]" value="<?php echo $row->price*$row->quantity; ?>" readonly/>
+            					<input type="hidden" name="order_price[]" value="<?php echo $row->price*$row->unit_id; ?>" readonly/>
                       <input type="hidden" name="unit_id[]" value="<?php echo $row->unit_id; ?>" readonly/>
                       <div class="item row d-flex align-items-center">
                         <div class="col-4">
@@ -129,14 +129,14 @@
                           </div>
                         </div>
                         <div class="col-2"><span>₱ <?php echo number_format($row->price,2); ?></span></div>
-                        <div class="col-2"><span><?php echo $row->quantity; ?></span></div>
-                        <div class="col-2"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->quantity)*$row->disc_decimal),2); ?></span></div>
+                        <div class="col-2"><span><?php echo $row->unit_name; ?></span></div>
+                        <div class="col-2"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->unit_id)*$row->disc_decimal),2); ?></span></div>
 
-                        <div class="col-2"><span>₱&nbsp<?php echo number_format( ($row->price*$row->quantity)-$discount,2); ?></span></div>
+                        <div class="col-2"><span>₱&nbsp<?php echo number_format( ($row->price*$row->unit_id)-$discount,2); ?></span></div>
                       </div>
 
                       <?php
-                				$ordertotal+=$row->price*$row->quantity;
+                				$ordertotal+=$row->price*$row->unit_id-$discount;
                 			}
                 			?>
                 			</form>

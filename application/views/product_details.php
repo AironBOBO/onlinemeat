@@ -54,11 +54,11 @@
             <h5><?php echo $product_info[0]->qty; ?> Stock Left</h5>
             <hr>
             <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
-              <div class="quantity d-flex align-items-center">
+<!--               <div class="quantity d-flex align-items-center">
                 <div class="dec-btn">-</div>
                 <input type="text" value="1" class="quantity-no">
                 <div class="inc-btn">+</div>
-              </div>
+              </div> -->
               <select class="form-control d_unit_id" style="width:100px;height:50px;">
                 <?php foreach($units as $row){ ?>
                   <option value="<?php echo $row->unit_id; ?>"><?php echo $row->unit_name; ?></option>

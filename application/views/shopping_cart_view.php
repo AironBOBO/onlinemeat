@@ -40,7 +40,7 @@
               <div class="row">
                 <div class="col-4">Product</div>
                 <div class="col-2">Price</div>
-                <div class="col-2">Quantity</div>
+                <div class="col-2">Weight</div>
                 <div class="col-1">Discount</div>
                 <div class="col-2 text-center">Total</div>
                 <div class="col-1 text-center">Remove</div>
@@ -61,16 +61,24 @@
                   </div>
                   <div class="col-2"><span>₱ <?php echo number_format($row->price,2); ?></span></div>
                   <div class="col-2">
-                    <div class="d-flex align-items-center">
-                      <div class="quantity d-flex align-items-center">
-                        <div class="dec-btn" id="<?php echo $row->cart_id; ?>">-</div>
-                        <input type="text" value="<?php echo $row->quantity; ?>" class="quantity-no">
-                        <div class="inc-btn" id="<?php echo $row->cart_id; ?>">+</div>
-                      </div>
-                    </div>
+                    <form method="POST" action="Cart/transaction/update">
+                      <input type="hidden" name="cart_id"  value="<?php echo $row->cart_id; ?>">
+                      <select class="form-control" name="unit_id" style="width:100px;height:50px;" onchange='this.form.submit()'>
+                          <option value="<?php echo $row->unit_id; ?>"><?php echo $row->unit_name; ?></option>
+                          <?php
+                            foreach($unit as $units){
+                              ?>
+                              <?php if($units->unit_id!=$row->unit_id){ ?>
+                                <option value="<?php echo $units->unit_id; ?>"><?php echo $units->unit_name; ?></option>
+                              <?php } ?>
+                              <?php
+                            }
+                          ?>
+                      </select>
+                    </form>
                   </div>
-                  <div class="col-1"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->quantity)*$row->disc_decimal),2); ?></span></div>
-                  <div class="col-2 text-center"><span>₱ <?php echo number_format( ($row->price*$row->quantity)-$discount,2); ?></span></div>
+                  <div class="col-1"><span>₱&nbsp<?php echo $discount = number_format( (($row->price*$row->unit_id)*$row->disc_decimal),2); ?></span></div>
+                  <div class="col-2 text-center"><span>₱ <?php echo number_format( ($row->price*$row->unit_id)-$discount,2); ?></span></div>
                   <div class="col-1 text-center"><i id="<?php echo $row->cart_id; ?>" class="delete fa fa-trash cart-remove"></i></div>
                 </div>
               </div>
