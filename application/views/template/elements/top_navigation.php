@@ -65,13 +65,15 @@
 								<div class="d-flex align-items-center">
 									<div class="img"><img src="<?php echo $row->image1; ?>" alt="..." class="img-fluid"></div>
 									<div class="details d-flex justify-content-between">
-										<div class="text"> <a href="ProductDetails?getprodinfo=<?php echo $row->product_id; ?>"><strong><?php echo $row->product_name; ?></strong></a><small>Quantity: <?php echo $row->quantity; ?> </small><span class="price">₱ <?php echo number_format($row->price,2);?></span></div>
+										<div class="text"> <a href="ProductDetails?getprodinfo=<?php echo $row->product_id; ?>"><strong><?php echo $row->product_name; ?></strong></a><small>Weight: <?php echo $row->quantity; ?> </small><span class="price">₱ <?php echo number_format($row->price,2);?></span></div>
 									</div>
 								</div>
 							</div>
 						<?php $ordertotal += $row->price*$row->quantity; } ?>
 							<!-- total price-->
-							<div class="dropdown-item total-price d-flex justify-content-between"><span>Total</span><strong class="text-primary">₱ <?php echo number_format($ordertotal,2);?></strong></div>
+							<div class="dropdown-item total-price d-flex justify-content-between"><span>Total</span><strong class="text-primary">₱ <?php echo number_format($ordertotal,2);?></strong>
+							<input type="hidden" class="currentsubtotal" value="<?php echo $ordertotal; ?>">
+							</div>
 							<!-- call to actions-->
 							<div class="dropdown-item CTA d-flex"><a href="ShoppingCart" class="btn btn-template wide">Edit Cart</a><a href="Checkout" class="btn btn-template wide">Checkout</a></div>
 						</div>
