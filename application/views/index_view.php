@@ -132,7 +132,7 @@
                 </div>
               </div>
               <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $rows->price; ?></price></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $best->product_name; ?></h3></a><span class="price text-muted">₱ <price class="prodname_price"><?php echo $best->price; ?></price></span></div>
             </div>
           </div>
           <?php } ?>
