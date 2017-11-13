@@ -88,7 +88,7 @@ class Register extends CORE_Controller {
                           $mail->Port = 587;                                    // TCP port to connect to
 
                           $mail->setFrom($user_name, 'Gerona Marketplace');
-                          $mail->addAddress($user_name, $user_fname.' '.$user_fname);     // Add a recipient
+                          $mail->addAddress($user_name, $user_fname.' '.$user_lname);     // Add a recipient
                           // $mail->addAddress('ellen@example.com');               // Name is optional
                           $mail->addReplyTo('tsuccsmeat09@gmail.com', 'Gerona Marketplace');
                           $mail->addCC('tsuccsmeat09@gmail.com');
@@ -98,7 +98,7 @@ class Register extends CORE_Controller {
                           $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                           $mail->isHTML(true);                                  // Set email format to HTML
 
-                          $mail->Subject = 'Hello '.$user_fname.' '.$user_fname;
+                          $mail->Subject = 'Hello '.$user_fname.' '.$user_lname;
 
                           $regcontent = $this->load->view('template/elements/regcontent_view',null,TRUE);
                           $mail->Body = $regcontent;
