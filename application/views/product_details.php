@@ -133,7 +133,7 @@
                 </div>
               </div>
               <div class="title"><a href="#">
-                  <h3 class="h6 text-uppercase no-margin-bottom"><?php echo $rows->product_name; ?></h3></a><span class="price">₱ <?php echo $rows->price; ?></span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom"><a href="ProductDetails?getprodinfo=<?php echo $rows->product_id; ?>&category_id=<?php echo $rows->category_id; ?>"><?php echo $rows->product_name; ?></a></h3><span class="price">₱ <?php echo $rows->price; ?></span></div>
             </div>
           </div>
         <?php } ?>
