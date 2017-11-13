@@ -86,11 +86,12 @@
               <button style="color:white;" type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <center><h6 class="message">Out of Stock</h6></center>
+              <center><h6>Out of Stock</h6></center>
             </div>
           </div>
         </div>
       </div>
+
 
 
     </section>
@@ -142,8 +143,6 @@
     </section>
 
     <?php echo $_footer; ?>
-
-    <?php echo $_shopping_cart; ?>
     <!-- Javascript files-->
     <?php echo $_def_js_files; ?>
     <script>
@@ -168,35 +167,15 @@
       $('.addtocart').click(function(){
         _product_id = $('.d_productid').val();
         _product_qty = $('.d_qty').val();
-        _quantitybuy = $('.d_unit_id').val();
+        _quantitybuy = $('.quantity-no').val();
         _unit_id = $('.d_unit_id').val();
         if(_product_qty<_quantitybuy){
-          $('.message').text('Out of stock');
           $('#modalcart').modal('show');
           return;
         }
         else{
           AddToCartFunc(_product_id).done(function(response){
-            if(response.stat=="error"){
-              $('.message').text(response.msg);
-              $('#modalcart').modal('show');
-              return;
-            }
-            $('#productnameajax').text(response.row_added[0].product_name);
-            $('#imgajax').attr('src',response.row_added[0].image1);
-            $('#categoryajax').text(response.row_added[0].category);
-            $('#priceajax').text(response.row_added[0].price);
-            var currentsubtotal = $('.currentsubtotal').val();
-            var newsubtotal = parseInt(response.row_added[0].unit_id)*parseInt(response.row_added[0].price) ;
-            $('.newsubtotal').text(newsubtotal+parseInt(currentsubtotal));
-            $('.totalpriceajax').text(newsubtotal+50+parseInt(currentsubtotal));
-            
-            $('#modal_shopping_cart').modal({
-                backdrop: 'static',
-                keyboard: false
-            })
-
-            // window.location.href = "ShoppingCart";
+            window.location.href = "ShoppingCart";
         });
        }
 
@@ -209,7 +188,6 @@
         _unit_id = $('.d_unit_id').val();
         if(_product_qty<_quantitybuy){
           $('#modalcart').modal('show');
-          $(".addtocart").html('<i class="icon-cart"></i>Add to Cart ');
           return;
         }
         else{
@@ -220,17 +198,14 @@
 
       });
 
-
+      
 
       var AddToCartFunc=function(_product_id){
         return $.ajax({
             "dataType":"json",
             "type":"POST",
             "url":"Cart/transaction/create",
-            "data":{product_id : _product_id,unit_id : _unit_id },
-            "beforeSend": function(){
-              $(".addtocart").html('<i class="fa fa-circle-o-notch fa-spin" style="font-size:24px"></i> Adding to cart...');
-          }
+            "data":{product_id : _product_id,unit_id : _unit_id }
         });
 
       };

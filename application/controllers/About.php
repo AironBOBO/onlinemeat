@@ -27,12 +27,12 @@ class About extends CORE_Controller {
 
         $cat['products_cart']=$m_cart->get_list(
           'products.is_deleted=0 AND cart.is_reserve=0 AND cart.user_id='.$user_id,
-          'products.product_id,products.product_name,products.category_id,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
+          'products.product_id,products.product_name,products.price,products.image1,cart.quantity,cart.cart_id',
                     array(
                           array('products','products.product_id=cart.product_id','left'),
-                          array('unit','unit.unit_id=cart.unit_id','left'),
-                          array('discount','discount.discount_id=unit.discount_id','left'),
-                      )
+                      ),
+          null,
+          'product_id'
                     );
 
         $data['units'] = $m_unit->get_list();

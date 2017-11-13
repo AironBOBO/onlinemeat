@@ -85,7 +85,7 @@
                       <div class="card-body">
                           <div class="row">
                             <div class="card-body">
-                              <input type="radio" name="shippingfee" value="50" id="payment-method-2" class="radio-template" checked>
+                              <input type="radio" name="shippingfee" value="50" id="payment-method-2" class="radio-template">
                               <label for="payment-method-2"><strong>Cash On Delivery</strong><br><span class="label-description">If the purchaser does not make payment when the good is delivered, then the good is returned to the seller.</span></label>
                             </div>
                           </div>

@@ -33,12 +33,12 @@ class Index extends CORE_Controller {
 
         $cat['products_cart']=$m_cart->get_list(
           'products.is_deleted=0 AND cart.is_reserve=0 AND cart.user_id='.$user_id,
-          'products.product_id,products.product_name,products.category_id,products.price,products.image1,cart.quantity,cart.cart_id,unit.*,discount.*',
+          'products.product_id,products.product_name,products.price,products.image1,cart.quantity,cart.cart_id',
                     array(
                           array('products','products.product_id=cart.product_id','left'),
-                          array('unit','unit.unit_id=cart.unit_id','left'),
-                          array('discount','discount.discount_id=unit.discount_id','left'),
-                      )
+                      ),
+          null,
+          'product_id'
                     );
 
         $data['carousel']=$m_carousel->get_list(
@@ -73,7 +73,6 @@ class Index extends CORE_Controller {
         $data['_def_css_files']=$this->load->view('template/assets/css_files','',TRUE);
         $data['_def_js_files']=$this->load->view('template/assets/js_files','',TRUE);
         $data['_top_navigation']=$this->load->view('template/elements/top_navigation',$cat,TRUE);
-        $data['_shopping_cart']=$this->load->view('template/elements/modal_shopping_cart',$cat,TRUE);
         $this->load->view('index_view',$data);
         $data['title'] = 'Dashboard';
     }

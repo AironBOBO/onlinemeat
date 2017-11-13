@@ -64,7 +64,7 @@
                     <form method="POST" action="Cart/transaction/update">
                       <input type="hidden" name="cart_id"  value="<?php echo $row->cart_id; ?>">
                       <select class="form-control" name="unit_id" style="width:100px;height:50px;" onchange='this.form.submit()'>
-                          <option value="<?php echo $row->unit_id; ?>"><?php echo $row->quantity; ?></option>
+                          <option value="<?php echo $row->unit_id; ?>"><?php echo $row->unit_name; ?></option>
                           <?php
                             foreach($unit as $units){
                               ?>
@@ -111,7 +111,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-12 text-center CTAs"><a href="Checkout" class="btn btn-template btn-lg wide ptc">Proceed to checkout<i class="fa fa-long-arrow-right"></i></a></div>
+          <div class="col-lg-12 text-center CTAs"><a href="Checkout" class="btn btn-template btn-lg wide">Proceed to checkout<i class="fa fa-long-arrow-right"></i></a></div>
         </div>
       </div>
     </section>
